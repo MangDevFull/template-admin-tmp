@@ -492,6 +492,11 @@ cookie-parser@^1.4.6:
     cookie "0.4.1"
     cookie-signature "1.0.6"
 
+cookie-secure@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/cookie-secure/-/cookie-secure-1.0.4.tgz#854349ef473a266be531898a68c433b5a30cf29c"
+  integrity sha512-YAVXirl8ri+TqwKIOZh9XIMKl85Q618o8FzaPIItm27U1GS3pjbp5CfgrB4h2o02Imtmh/a+XnYw25vu5mgfQw==
+
 cookie-signature@1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/cookie-signature/-/cookie-signature-1.0.6.tgz#e303a882b342cc3ee8ca513a79999734dab3ae2c"
@@ -524,6 +529,11 @@ crypto-random-string@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-2.0.0.tgz#ef2a7a966ec11083388369baa02ebead229b30d5"
   integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
+
+date-fns@^2.28.0:
+  version "2.28.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.28.0.tgz#9570d656f5fc13143e50c975a3b6bbeb46cd08b2"
+  integrity sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==
 
 debug@2.6.9:
   version "2.6.9"
@@ -893,6 +903,13 @@ http-errors@~1.7.2:
     setprototypeof "1.1.1"
     statuses ">= 1.5.0 < 2"
     toidentifier "1.0.0"
+
+http-msgs@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/http-msgs/-/http-msgs-1.0.9.tgz#2e5f678fc73afa877e9f69c3c4fc6e40b703d0aa"
+  integrity sha512-YTzLBJUTY1ohZqzY4RbFDJn1fjTO1CbaqnzNbUPJ2Rvxc25ir2H7ZDoC1hZVTLtlwK/m+7FL8NUXq4VMShqlvA==
+  dependencies:
+    cookie-secure "^1.0.4"
 
 i18next-fs-backend@^1.1.1:
   version "1.1.4"

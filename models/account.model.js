@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
-import { accountTypeEnum } from '../enums/accountType.enum';
-import { accountStatusEnum } from '../enums/accountStatus.enum';
+import { accountTypeEnum } from '../enums/accountType.enum.js';
+import { accountStatusEnum } from '../enums/accountStatus.enum.js';
 
 const { Schema } = mongoose;
 

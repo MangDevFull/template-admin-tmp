@@ -1,6 +1,6 @@
 import passport from "passport";
 import passportLocal from "passport-local";
-import {User} from "../models/user.model.js";
+import {Account} from "../models/account.model.js";
 
 let LocalStrategy = passportLocal.Strategy;
 
