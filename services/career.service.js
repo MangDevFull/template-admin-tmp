@@ -4,11 +4,13 @@ import {Tag} from '../models/tag.model.js'
 import { tagTypeEnum } from "../enums/tagType.enum.js"
 
 import {Response} from '../utils/response.js'
+import httpMsgs from "http-msgs";
 
 
 const CareersService = {
   index: async (req, res, next) => {
-    const careers = await Career.find({ status: careerStatusEnum.PUBLISHED })
+    const careers = await Career.find({ status: careerStatusEnum.PUBLISHED }).populate("tags")
+    console.log(careers)
     return res.render('career', {
       careers: careers,
       title: 'Carrer list ',
@@ -49,7 +51,8 @@ const CareersService = {
         title,
         position,
         featuredImage,
-        timeTable,
+        timeTitle,
+        timeWork,
         expirationWork,
         salary,
         location,
@@ -57,6 +60,10 @@ const CareersService = {
         content,
         tags,
       } = req.body
+
+      const fTags = tags.split(',')
+
+      console.log(fTags)
 
       const career = await Career.create({
         title,
@@ -66,12 +73,14 @@ const CareersService = {
         salary,
         location,
         status,
-        timeTable,
+        timeTable:{
+          timeTitle,
+          timeWork
+        },
         content,
-        tags
+        tags:fTags
       })
-      // return res.json("Create Career Successful")
-      return res.redirect('/')
+      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":career})
     } catch (e) {
       console.log(e)
     }

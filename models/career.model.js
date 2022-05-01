@@ -11,7 +11,6 @@ const careerSchema = new Schema({
   },
   content:{
     type: String,
-    required: true
   },
   position: {
     type: String,

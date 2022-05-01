@@ -8,6 +8,7 @@ router.use((req, res, next) => {
 
 router.route('/')
 .get(CareersService.index)
+.post(CareersService.createCareer)
 
 router.get("/create",CareersService.getCreateCareer)
 

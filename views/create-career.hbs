@@ -13,6 +13,23 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="ignismyModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body">
+
+                <div class="thank-you-pop">
+                    <img src="/assets/logos/Green-Round-Tick.png" alt="logon" />
+                    <h1 class="text-center">Success!</h1>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
 <!-- end page title -->
 
 <div class="row">
@@ -26,33 +43,33 @@
           <div class="col-md-12">
             <div class="mb-3">
               <label for="example-text-input" class="form-label">Title</label>
-              <input class="form-control" type="text" id="example-text-input">
+              <input class="form-control" type="text" id="title">
             </div>
             <div class="mb-3">
               <label for="example-text-input" class="form-label">Position</label>
-              <input class="form-control" type="text" id="example-text-input">
+              <input class="form-control" type="text" id="position">
             </div>
             <div class="mb-3">
               <label for="example-text-input" class="form-label">Expiration Work</label>
-              <input class="form-control" type="text" id="example-text-input">
+              <input class="form-control" type="text" id="exWork">
             </div>
           </div>
           <div class="mb-3">
             <label for="example-text-input" class="form-label">Salary</label>
-            <input class="form-control" type="text" id="example-text-input">
+            <input class="form-control" type="text" id="salary">
           </div>
           <div class="mb-3">
             <label for="example-text-input" class="form-label">Location</label>
-            <input class="form-control" type="text" id="example-text-input">
+            <input class="form-control" type="text" id="location">
           </div>
           <div class="mb-3">
-            <label for="example-text-input" class="form-label">Time Table</label>
-            <input class="form-control" type="text" id="example-text-input">
+            <label for="example-text-input" class="form-label">Time Title</label>
+            <input class="form-control" type="text" id="timeAble">
           </div>
         </div>
         <div class="mb-3">
           <label for="example-text-input" class="form-label">Time Work</label>
-          <input class="form-control" type="text" id="example-text-input">
+          <input class="form-control" type="text" id="timeWork">
         </div>
         <div class="mb-3">
 
@@ -60,15 +77,9 @@
           <select class="form-control" name="choices-multiple-remove-button" data-trigger
             id="choices-multiple-remove-button" placeholder="This is a placeholder" multiple>
             {{#each tags}}
-            <option>{{this.title}}</option>
+            <option value="{{this._id}}">{{this.name}}</option>
             {{/each}}
-            <option selected>aaa</option>
-            <option>aaa</option>
           </select>
-        </div>
-        <div class="mb-3">
-          <label for="example-text-input" class="form-label">Source:</label>
-          <input class="form-control" type="text" id="example-text-input">
         </div>
       </div>
     </div>
@@ -102,6 +113,9 @@
     <div id="ckeditor-classic"></div>
   </div>
 </div>
+ <div class="d-flex justify-content-end">
+    <button class="btn btn-primary" id="create">Create</button>
+    </div>
 </div>
 <!-- end col -->
 </div>
@@ -126,3 +140,4 @@
 <script src="/assets/js/pages/form-advanced.init.js"></script>
 
 <script src="/assets/js/app.js"></script>
+<script src="/js/career.js"></script>
