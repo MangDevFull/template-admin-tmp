@@ -10,7 +10,7 @@ const ProjectService = {
     try {
       const projects = await Project.find({
         status: projectStatusEnum.PUBLISHED,
-      }).sort({ createdAt: -1 });
+      }).populate('category').sort({ createdAt: -1 });
       return res.render('list-project', {
         projects: projects,
         title: 'Project List',
@@ -64,8 +64,8 @@ const ProjectService = {
         status,
       });
 
-      
-      return res.redirect('/');
+      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":project})
+
     } catch (err) {
       console.error(err);
       return next(err);

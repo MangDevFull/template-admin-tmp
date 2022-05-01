@@ -8,6 +8,7 @@ router.use((req, res, next) => {
 
 router.route('/')
 .get(ArticleService.showList)
+.post(ArticleService.createArticle)
 
 router.get("/create",ArticleService.getCreateArticle)
 

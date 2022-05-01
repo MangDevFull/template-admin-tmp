@@ -32,7 +32,7 @@ const MemberService = {
                 date:dOB,
                 phone:phone,
             })
-            return  httpMsgs.sendJSON(req,res,{'boolean' : req.body,"ac":members})
+            return  httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":members})
         } catch (e) {
             console.log(e)
         }

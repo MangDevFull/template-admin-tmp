@@ -8,6 +8,7 @@ router.use((req, res, next) => {
 
 router.route('/')
 .get(ProjectService.showList)
+.post(ProjectService.createProject)
 
 router.get("/create",ProjectService.getCreateProject)
 

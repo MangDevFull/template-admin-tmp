@@ -3,13 +3,14 @@ import { categoryTypeEnum } from '../enums/categoryType.enum.js';
 import { Article } from '../models/article.model.js';
 import { Category } from '../models/category.model.js';
 import { Response } from '../utils/response.js';
+import httpMsgs from "http-msgs";
 
 const ArticleService = {
   showList: async (req, res, next) => {
     try {
       const articles = await Article.find({
         status: articleStatusEnum.PUBLISHED,
-      }).sort({ createdAt: -1 });
+    }).populate('category').sort({ createdAt: -1 });
       return res.render('news', { articles: articles, title: 'News' });
     } catch (err) {
       console.error(err);
@@ -47,19 +48,19 @@ const ArticleService = {
 
   createArticle: async (req, res, next) => {
     try {
-      const { title, subTitle, thumbnail, content, source } = req.body;
+      const { title, subTitle, thumbnail, content, source,category } = req.body;
 
       const article = await Article.create({
         title,
         subTitle,
+        category,
         content,
         thumbnail,
         source,
-        author: req.user._id,
       });
 
       // return res.json(Response.success()) or return res.render()...
-      return res.redirect('/')
+      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":article})
 
     } catch (err) {
       console.error(err);
