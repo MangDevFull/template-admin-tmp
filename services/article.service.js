@@ -10,7 +10,7 @@ const ArticleService = {
       const articles = await Article.find({
         status: articleStatusEnum.PUBLISHED,
       }).sort({ createdAt: -1 });
-      return res.render('news', { articles: articles, title: 'Tin tức' });
+      return res.render('news', { articles: articles, title: 'News' });
     } catch (err) {
       console.error(err);
       return next(err);
@@ -35,7 +35,7 @@ const ArticleService = {
     try {
       const categories = await Category.find({type: categoryTypeEnum.ARTICLE});
 
-      return res.render('/create-article', {
+      return res.render('create-article', {
         categories,
         title: "Create article"
       })

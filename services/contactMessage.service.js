@@ -1,14 +1,13 @@
 import { ContactMessage } from '../models/contactMessage.model.js';
-import { Member } from '../models/members.model.js';
 
 const MemberService = {
   showData: async (req, res, next) => {
     try {
       const contacts = await ContactMessage.find({}).sort({ createdAt: -1 });
 
-      return res.render('about', {
+      return res.render('contact', {
         contactMessages: contacts,
-        title: 'Danh sách ...',
+        title: 'Contact messages',
       });
     } catch(err) { 
       console.error(err);

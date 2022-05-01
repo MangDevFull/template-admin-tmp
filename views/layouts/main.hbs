@@ -22,7 +22,7 @@
     <!-- plugin css -->
     <link href="/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet"
         type="text/css" />
-
+  <link href="/assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" />
     <!-- preloader css -->
     <link rel="stylesheet" href="/assets/css/preloader.min.css" type="text/css" />
 
@@ -114,21 +114,21 @@ padding: auto;
                 <div class="d-flex">
                     <!-- LOGO -->
                     <div class="navbar-brand-box">
-                        <a href="" class="logo logo-dark">
+                        <a href="/" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="/img/mubaha-order-free.png" alt="" height="30">
+                                <img src="/assets/logos/logo-tmp.png" alt="" height="20">
                             </span>
                             <span class="logo-lg">
-                                <img src="/img/mubaha-order-free.png" alt="" height="70"> 
+                                <img src="/assets/logos/logo-tmp.png" alt="" height="60"> 
                             </span>
                         </a>
 
-                        <a href="./" class="logo logo-light">
+                        <a href="/" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="/img/mubaha-order-free.png" alt="" height="30">
+                                <img src="/assets/logos/logo-tmp.png" alt="" height="20">
                             </span>
                             <span class="logo-lg">
-                                <img src="/img/mubaha-order-free.png" alt="" height="70"> 
+                                <img src="/assets/logos/logo-tmp.png" alt="" height="60"> 
                             </span>
                         </a>
                     </div>
@@ -173,13 +173,13 @@ padding: auto;
                             id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             <i data-feather="user" class="icon-lg"></i>
-                            <span class="d-none d-xl-inline-block ms-1 fw-medium">{{data.fullname}}</span>
+                            <span class="d-none d-xl-inline-block ms-1 fw-medium">Admin</span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
-                            <a class="dropdown-item" href="./profile"><i
-                                    class="mdi mdi-face-profile font-size-16 align-middle me-1"></i> Thông tin</a>
+                            {{!-- <a class="dropdown-item" href="./profile"><i
+                                    class="mdi mdi-face-profile font-size-16 align-middle me-1"></i> Thông tin</a> --}}
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/auth/logout"><i
                                     class="mdi mdi-logout font-size-16 align-middle me-1"></i> Đăng xuất</a>
@@ -202,7 +202,7 @@ padding: auto;
                         <li class="menu-title" data-key="t-menu">Menu</li>
 
                         <li>
-                            <a href='./'>
+                            <a href='/'>
                                 <i data-feather="home"></i>
                                 <span class="badge rounded-pill bg-soft-success text-success float-end"></span>
                                 <span data-key="t-dashboard">Homepage</span>
@@ -223,9 +223,21 @@ padding: auto;
                             </a>
                         </li>
                         <li>
-                            <a href="./currency_page">
+                            <a href="/contacts">
                                 <i class="fas fa-money-check-alt"></i>
-                                <span data-key="t-chat">Tỷ giá tiền tệ</span>
+                                <span data-key="t-chat">Contacts</span>
+                            </a>
+                        </li>
+                         <li>
+                            <a href="/news">
+                                <i class="fas fa-money-check-alt"></i>
+                                <span data-key="t-chat">News</span>
+                            </a>
+                        </li>
+                         <li>
+                            <a href="/career">
+                                <i class="fas fa-money-check-alt"></i>
+                                <span data-key="t-chat">Carrers</span>
                             </a>
                         </li>
                        
@@ -256,32 +268,7 @@ padding: auto;
     <script src="/assets/libs/node-waves/waves.min.js"></script>
     <script src="/assets/libs/feather-icons/feather.min.js"></script>
     <!-- pace js -->
-    <script src="/assets/libs/pace-js/pace.min.js"></script>
 
-    <!-- apexcharts -->
-    <script src="/assets/libs/apexcharts/apexcharts.min.js"></script>
-
-    <!-- Plugins js-->
-    <script src="/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
-    <!-- dashboard init -->
-    <script src="/assets/js/pages/dashboard.init.js"></script>
-
-
-
-
-    <!-- Required datatable js -->
-    <script src="/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <!-- Buttons examples -->
-    <script src="/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-    <script src="/assets/libs/jszip/jszip.min.js"></script>
-    <script src="/assets/libs/pdfmake/build/pdfmake.min.js"></script>
-    <script src="/assets/libs/pdfmake/build/vfs_fonts.js"></script>
-    <script src="/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
 
     
 

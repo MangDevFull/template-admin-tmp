@@ -13,6 +13,9 @@ const contactMessageSchema = new Schema(
     email: {
       type: String,
     },
+    phone: {
+      type: String,
+    },
     subject: {
       type: String,
     },

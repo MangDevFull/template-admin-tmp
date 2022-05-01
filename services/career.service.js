@@ -6,14 +6,12 @@ import { tagTypeEnum } from "../enums/tagType.enum.js"
 import {Response} from '../utils/response.js'
 
 
-
 const CareersService = {
   index: async (req, res, next) => {
     const careers = await Career.find({ status: careerStatusEnum.PUBLISHED })
-    console.log(careers)
-    return res.render('careers', {
+    return res.render('career', {
       careers: careers,
-      title: 'Tuyển dụng - cơ hội việc làm tại TMP Corp Technology',
+      title: 'Carrer list ',
     })
   },
 
@@ -35,7 +33,7 @@ const CareersService = {
     try {
       const tags = await Tag.find({type: tagTypeEnum.ARTICLE});
 
-      return res.render('/create-career', {
+      return res.render('create-career', {
         tags,
         title: "Create career"
       })

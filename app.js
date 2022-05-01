@@ -7,6 +7,7 @@ import morgan from 'morgan';
 import compress from 'compression';
 import cors from 'cors';
 import helmet from 'helmet';
+import moment from 'moment';
 import hbs from 'hbs';
 import i18next from 'i18next';
 import Backend from 'i18next-fs-backend';
@@ -65,6 +66,16 @@ hbs.registerHelper('t', function () {
     var options = args.pop();
     return i18next.t(args, {lng: options.data.root._locals.language});
 });
+
+hbs.registerHelper('formatDate', function(datetime, format) {
+    if(moment) {
+        format ='YYYY-MM-D';
+        return moment(datetime).format(format);
+    }
+    else{
+        return datetime;
+    }
+})
 
 hbs.registerHelper('tr', function (context, options) {
     var opts = i18next.functions.extend(options.hash, context);

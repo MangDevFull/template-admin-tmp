@@ -33,12 +33,12 @@ $(document).ready(function () {
     const data = {}
     data.username = $("#usename").text()
     $.ajax({
-      url: './members',
+      url: '/members',
       method: 'POST',
       data: data,
       success: function (da) {
           if (da.boolean) {
-            $(".bs-example-modal-lg").modal('hide')
+            $("#myModal").modal('hide')
               $("#ignismyModal").modal('show');
               setTimeout(function () {
                   location.reload()
@@ -46,7 +46,7 @@ $(document).ready(function () {
           }
       },
       error: function (jqXHR, textStatus, errorThrown) {
-          alert("Lỗi đăng ký")
+          alert(errorThrown)
       }
   }) 
   })
