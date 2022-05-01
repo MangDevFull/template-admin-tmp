@@ -93,7 +93,6 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser(vars.cookieSecret));
 
 app.use(compress());
-app.use(helmet());
 app.use(cors());
 
 /* Session */

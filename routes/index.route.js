@@ -1,6 +1,7 @@
 import express from 'express';
 import AuthRouters from "./auth.route.js"
 import memeberRouter from "./members.route.js";
+import projectRouter from "./project.route.js"
 
 const router = express.Router();
 router.get('/',(req, res) => {
@@ -8,6 +9,7 @@ router.get('/',(req, res) => {
 })
 router.use('/auth',AuthRouters)
 router.use('/members',memeberRouter)
+router.use('/project',projectRouter)
 
 
 

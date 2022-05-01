@@ -3,6 +3,7 @@ import {Category} from '../models/category.model.js'
 import { projectStatusEnum } from '../enums/projectStatus.enum.js';
 import { Response } from '../utils/response.js';
 import { categoryTypeEnum } from '../enums/categoryType.enum.js';
+import httpMsgs from "http-msgs";
 
 const ProjectService = {
   showList: async (req, res, next) => {
@@ -10,9 +11,9 @@ const ProjectService = {
       const projects = await Project.find({
         status: projectStatusEnum.PUBLISHED,
       }).sort({ createdAt: -1 });
-      return res.render('list-projects', {
+      return res.render('list-project', {
         projects: projects,
-        title: 'Danh sách dự án',
+        title: 'Project List',
       });
     } catch (err) {
       console.error(err);
@@ -37,11 +38,11 @@ const ProjectService = {
   getCreateProject: async(req, res, next) => {
     try {
       const categories = await Category.find({type: categoryTypeEnum.PROJECT});
-
-      return res.render('/create-project', {
-        categories,
-        title: "Create project"
+      return  res.render('create-project',{
+        cates: categories,
+        title: "Project create",
       })
+     
     } catch(err) {
       console.error(err);
       return next(err);
@@ -53,7 +54,7 @@ const ProjectService = {
       const { title, thumbnail, content, category, status } = req.body;
 
       const cat = await Category.findOne({_id: category, type: categoryTypeEnum.PROJECT})
-      if(!cat) return res.json(Response.notFound())
+      if(!cat) return  httpMsgs.sendJSON(req,res,{"boolean":false});
 
       const project = await Project.create({
         title,
@@ -63,7 +64,7 @@ const ProjectService = {
         status,
       });
 
-      // return res.json(Response.success()) or return res.render()...
+      
       return res.redirect('/');
     } catch (err) {
       console.error(err);

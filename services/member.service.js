@@ -8,7 +8,6 @@ const MemberService = {
     viewDetail: async (req, res, next) => {
         try {
             const {username} = req.params
-            console.log(username)
             const mem = await Member.findOne({username: username})
             console.log("mem",mem)
             return res.render('member-detail', {mem: mem, title: "Member Detail"})
