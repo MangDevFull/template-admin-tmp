@@ -11,6 +11,8 @@ const ProjectService = {
       const projects = await Project.find({
         status: projectStatusEnum.PUBLISHED,
       }).populate('category').sort({ createdAt: -1 });
+
+      console.log(projects)
       return res.render('list-project', {
         projects: projects,
         title: 'Project List',
@@ -25,8 +27,10 @@ const ProjectService = {
     try {
       const { slug } = req.params;
       const project = await Project.findOne({ slug: slug }).populate('category');
-      return res.render('article-details', {
+      const categories = await Category.find({type: categoryTypeEnum.PROJECT,_id:{$ne:project.category._id}});
+      return res.render('project-detail', {
         project: project,
+        categories,
         title: project.title,
       });
     } catch (err) {
@@ -58,7 +62,7 @@ const ProjectService = {
 
       const project = await Project.create({
         title,
-        content,
+        content: content || "content",
         thumbnail,
         category: category,
         status,
@@ -74,11 +78,12 @@ const ProjectService = {
 
   updateProject: async (req, res, next) => {
     try {
-      const { id } = req.params;
-      const project = await Project.findById(id);
+      const { slug } = req.params;
+      const project = await Project.findOne({ slug: slug});
       if (!project) return res.json(Response.notFound());
 
       const { title, content, thumbnail, category, status } = req.body;
+      console.log(req.body)
       let isChange = false;
       if (title && project.title !== title) {
         project.title = title;
@@ -92,7 +97,7 @@ const ProjectService = {
         project.thumbnail = thumbnail;
         isChange = true;
       }
-      if (status && project.category != category) {
+      if (category && project.category != category) {
         project.category = category;
         isChange = true;
       }
@@ -102,8 +107,7 @@ const ProjectService = {
       }
       if(isChange) await project.save();
 
-      // return res.json(Response.success()) or return res.render()...
-      return res.redirect('/');
+      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":project})
     } catch (err) {
       console.error(err);
       return next(err);

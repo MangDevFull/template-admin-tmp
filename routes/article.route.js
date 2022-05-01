@@ -12,6 +12,10 @@ router.route('/')
 
 router.get("/create",ArticleService.getCreateArticle)
 
+router.route('/:slug')
+  .get(ArticleService.getDetails)
+  .post(ArticleService.updateArticle)
+
 
 
 

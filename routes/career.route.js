@@ -12,6 +12,10 @@ router.route('/')
 
 router.get("/create",CareersService.getCreateCareer)
 
+router.route("/:slug")
+.get(CareersService.getDetails)
+.post(CareersService.update)
+
 
 
 

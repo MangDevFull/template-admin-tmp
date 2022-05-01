@@ -36,6 +36,34 @@ const MemberService = {
         } catch (e) {
             console.log(e)
         }
+    },
+    updateMember: async (req, res, next) => {
+        try {
+            const {username} = req.params
+            const {fullName, position, featuredImage, face,email,dOB,ig,phone} = req.body
+
+            const members = await Member.findOneAndUpdate({username:username},{
+               $set:{
+                fullName,
+                position,
+                socialLinks:{
+                    facebook:face,
+                    instagram: ig
+                },
+                featuredImage,
+                email,
+                date:dOB,
+                phone:phone,
+               }
+            },
+            {
+                new:true,
+            }
+            )
+            return  httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":members})
+        } catch (e) {
+            console.log(e)
+        }
     }
 };
 export {MemberService}

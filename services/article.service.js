@@ -21,9 +21,11 @@ const ArticleService = {
   getDetails: async (req, res, next) => {
     try {
       const {slug} = req.params
-      const article = await Article.findOne({slug: slug}).populate('category author')
-      return res.render('article-details', {
+      const article = await Article.findOne({slug: slug}).populate('category')
+      const categories = await Category.find({type: categoryTypeEnum.ARTICLE,_id:{$ne:article.category._id}});
+      return res.render('news-detail', {
         article: article,
+        categories,
         title: article.title
       })
     } catch(err) {
@@ -70,11 +72,11 @@ const ArticleService = {
 
   updateArticle: async (req, res, next) => {
     try {
-      const { id } = req.params;
-      const article = await Article.findById(id);
+      const { slug } = req.params;
+      const article = await Article.findOne({ slug: slug});
       if (!article) return res.json(Response.notFound());
 
-      const { title, subTitle, thumbnail, source } = req.body;
+      const { title, subTitle, thumbnail, source,category } = req.body;
       let isChange = false;
       if (title && article.title !== title) {
         article.title = title;
@@ -88,14 +90,17 @@ const ArticleService = {
         article.thumbnail = thumbnail;
         isChange = true;
       }
+      if (category && article.category != category) {
+        article.category = category;
+        isChange = true;
+      }
       if (source && article.source !== source) {
         article.source = source;
         isChange = true;
       }
       if(isChange) await article.save();
 
-      // return res.json(Response.success()) or return res.render()...
-      return res.redirect('/')
+      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":article})
 
     } catch (err) {
       console.error(err);

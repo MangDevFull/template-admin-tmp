@@ -10,7 +10,9 @@ router.route('/')
 .get(MemberService.showData)
 .post(MemberService.createMember)
 
-router.route('/detail/:username').get(MemberService.viewDetail)
+router.route('/detail/:username')
+.get(MemberService.viewDetail)
+.post(MemberService.updateMember)
 
 
 

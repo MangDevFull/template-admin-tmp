@@ -3,6 +3,23 @@
     <div class="profile-user"></div>
   </div>
 </div>
+<div class="modal fade" id="ignismyModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body">
+
+                <div class="thank-you-pop">
+                    <img src="/assets/logos/Green-Round-Tick.png" alt="logon" />
+                    <h1 class="text-center">Success!</h1>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="row">
   <div class="profile-content">
     <div class="row align-items-end">
@@ -75,7 +92,100 @@
 
             </div>
             <div class="d-flex justify-content-end">
-              <button type="button" class="btn btn-danger waves-effect waves-light" data-bs-toggle="modal"
+              <div class="mr-2" style="margin-right: 5px;">
+                  <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                    data-bs-target=".bs-example-modal-lg">Update</button>
+                <!--  Large modal example -->
+                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="myLargeModalLabel">Update</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="pristine-valid-example" novalidate>
+                                    <h5> Information about</h5>
+                                    <div class="row">
+                                        <div class="col-xl-4 col-md-6">
+                                            <div class="form-group mb-3">
+                                                <label>FullName</label>
+                                                <input type="text" required id="fullName"
+                                                value="{{mem.fullName}}"
+                                                    data-pristine-required-message="Please Enter fullName"
+                                                    class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-md-6">
+                                            <div class="form-group mb-3">
+                                                <label>Email</label>
+                                                <input type="email" required id="email"
+                                                    value="{{mem.email}}"
+                                                    class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-md-6">
+                                            <div class="form-group mb-3">
+                                                <label>Phone</label>
+                                                <input type="tel" required id="phone"
+                                                    value="{{mem.phone}}"
+                                                    class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4 col-md-6">
+                                            <div class="form-group mb-3">
+                                                <label>Date of Birth</label>
+                                                <input class="form-control" type="date" id="date"
+                                                value="{{mem.date}}"
+                                                >
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xl-4 col-md-6">
+                                            <div class="form-group mb-3">
+                                                <label>Possition</label>
+                                                <input type="text" required id="position"
+                                                    value="{{mem.position}}"
+                                                    class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5> Social Links</h5>
+                                    <div class="row">
+
+                                        <div class="col-xl-6 col-md-6">
+                                            <div class="form-group mb-3">
+                                                <label>Facebook</label>
+                                                <input type="text" required
+                                                    value="{{mem.socialLinks.facebook}}"
+                                                     id="face"
+                                                    class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-md-6">
+                                            <div class="form-group mb-3">
+                                                <label>Instagram</label>
+                                                <input type="text" required id="ig"
+                                                value="{{mem.socialLinks.instagram}}"
+                                                    data-pristine-required-message="Please Enter a Email"
+                                                    class="form-control" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="button" id="update" class="btn btn-primary">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+              </div>
+              <button type="button" class="btn btn-danger waves-effect waves-light ml-2" data-bs-toggle="modal"
                 data-bs-target="#myModal">Delete</button>
 
               <!-- sample modal content -->

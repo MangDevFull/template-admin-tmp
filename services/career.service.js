@@ -21,8 +21,16 @@ const CareersService = {
     try {
       const {slug} = req.params
       const career = await Career.findOne({slug: slug}).populate('tags')
-      return res.render('career-details', {
+      const t = career.tags.map(tag =>{
+        return tag._id
+      })
+      console.log("t",t)
+      console.log(career)
+      const tags = await Tag.find({type: tagTypeEnum.ARTICLE,_id:{$nin:t}});
+      console.log(career)
+      return res.render('career-detail', {
         career: career,
+        tags,
         title: career.title
       })
     } catch(err) {
@@ -80,6 +88,48 @@ const CareersService = {
         content,
         tags:fTags
       })
+      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":career})
+    } catch (e) {
+      console.log(e)
+    }
+  },
+
+  update: async (req, res, next) => {
+    try {
+      const {slug} = req.params
+      const {
+        title,
+        position,
+        featuredImage,
+        timeTitle,
+        timeWork,
+        expirationWork,
+        salary,
+        location,
+        status,
+        content,
+        tags,
+      } = req.body
+
+      const fTags = tags.split(',')
+
+      const career = await Career.findOneAndUpdate({slug:slug},{
+       $set:{
+        title,
+        position,
+        featuredImage,
+        expirationWork,
+        salary,
+        location,
+        status,
+        timeTable:{
+          timeTitle,
+          timeWork
+        },
+        content,
+        tags:fTags
+       }
+      },{ new: true})
       return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":career})
     } catch (e) {
       console.log(e)

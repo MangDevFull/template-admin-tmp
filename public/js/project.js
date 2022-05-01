@@ -1,5 +1,6 @@
 
 $(document).ready(function () {
+
   let fileUpload
   let uploadUrl
   $("#thum").change(function (e) {
@@ -15,7 +16,7 @@ $(document).ready(function () {
       method: 'POST',
       data: data,
       success: function (da) {
-        console.log('da',da)
+        console.log('da', da)
         if (da.boolean) {
           fileUpload = da.uploadUrl
           uploadUrl = da.uploadUrl
@@ -28,6 +29,8 @@ $(document).ready(function () {
     })
   })
   $("#create").click(function () {
+    const cont = $('#ckeditor-classic').val()
+    console.log(cont)
     const data = {}
     data.category = $('#cate').find(":selected").val();
     data.title = $('#title').val();
@@ -36,16 +39,16 @@ $(document).ready(function () {
       method: 'POST',
       data: data,
       success: function (da) {
-          if (da.boolean) {
-              $("#ignismyModal").modal('show');
-              setTimeout(function () {
-                  window.location.href('/project')
-              }, 1500)
-          }
+        if (da.boolean) {
+          $("#ignismyModal").modal('show');
+          setTimeout(function () {
+            window.location.replace('/project')
+          }, 1500)
+        }
       },
       error: function (jqXHR, textStatus, errorThrown) {
-          alert("Lỗi đăng ký")
+        alert("Lỗi đăng ký")
       }
-  }) 
+    })
   })
 })

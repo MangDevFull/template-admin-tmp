@@ -12,6 +12,11 @@ router.route('/')
 
 router.get("/create",ProjectService.getCreateProject)
 
+router.route('/:slug')
+.get(ProjectService.getDetails)
+.post(ProjectService.updateProject)
+
+
 
 
 

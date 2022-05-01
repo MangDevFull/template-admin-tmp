@@ -27,7 +27,7 @@ const projectSchema = new Schema(
     slug: {
       type: String,
       default() {
-        if (this.name) {
+        if (this.title) {
           return `${slugify(this.title)}-${nanoid(6)}`;
         }
       },
