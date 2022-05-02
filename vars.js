@@ -20,21 +20,4 @@ export default {
   s3Url: process.env.S3_URL,
   s3Bucket: process.env.S3_BUCKET_NAME,
   firebaseApiKey: process.env.FIREBASE_API_KEY,
-  accountTier: {
-    silver: parseInt(process.env.TIER_SILVER),
-    gold: parseInt(process.env.TIER_GOLD),
-    diamond: parseInt(process.env.TIER_DIAMOND),
-    blackDiamond: parseInt(process.env.TIER_BLACK_DIAMOND),
-  },
-  affiliate: {
-    commissionRateLvl1: parseFloat(process.env.COMMISSION_RATE_LVL1),
-    commissionRateLvl2: parseFloat(process.env.COMMISSION_RATE_LVL2),
-  },
-  reward: {
-    pointRate: parseFloat(process.env.POINT_RATE),
-  },
-  bluesea: {
-    username: process.env.BLUE_SEA_USER_NAME,
-    password: process.env.BLUE_SEA_PASSWORD,
-  },
 };

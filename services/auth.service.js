@@ -10,7 +10,7 @@ passport.use(new LocalStrategy({
     passReqToCallback: true
 }, async (req, username, password, done)=> {
     try {
-        let user = await User.findOne({username:username});
+        let user = await Account.findOne({username:username});
         if (!user) {
             req.flash('error', 'Incorrect username.')
             return done(null, false);
@@ -21,7 +21,7 @@ passport.use(new LocalStrategy({
             return done(null, false);
         }
 
-        req.flash('error', 'Login success.' )
+        req.flash('success', 'Login success.' )
         return done(null, user);
     } catch (error) {
         console.log(error);
