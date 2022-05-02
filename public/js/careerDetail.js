@@ -1,7 +1,19 @@
 
 $(document).ready(function () {
+  const d = $("#con").text();
+  console.log( d)
+  ClassicEditor
+  .create( document.querySelector( '#ckeditor-classic' ) )
+  .then( newEditor => {
+    editor = newEditor
+    editor.setData( d );
+  } )
+  .catch( error => {
+      console.error( error );
+  } );
   $("#update").click(function () {
     const data = {}
+    const editorData = editor.getData();
     const slug = $("#slug").text()
     data.title = $('#title').val();
     data.position = $("#position").val();
@@ -12,6 +24,7 @@ $(document).ready(function () {
     data.timeWork = $("#timeWork").val();
     data.location = $("#location").val();
     data.tags = $('#choices-multiple-remove-button').val().toString();
+    data.content = editorData
     $.ajax({
       url: `/career/${slug}`,
       method: 'POST',

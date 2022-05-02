@@ -13,9 +13,11 @@ $(document).ready(function () {
   } );
   $("#update").click(function () {
     const slug = $("#slug").text()
+    const editorData = editor.getData();
     const data = {}
     data.category = $('#cate').find(":selected").val();
     data.title = $('#title').val();
+    data.content = editorData
 
     $.ajax({
       url: `/project/${slug}`,
