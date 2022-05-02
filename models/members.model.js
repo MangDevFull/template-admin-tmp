@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import {customAlphabet} from 'nanoid'
+const nanoid = customAlphabet('1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ', 10);
 
 const { Schema } = mongoose;
 
@@ -8,14 +10,27 @@ const memberSchema = new Schema(
       type: String,
       required: true,
     },
+    email: {
+      type: String,
+      required: true,
+    },
+    date:{
+      type: String,
+    },
+    phone:{
+      type: String,
+    },
+    username: {
+      type: String,
+      required: true,
+        default: () => nanoid()
+    },
     position: {
       type: String,
       required: true,
     },
     socialLinks: {
       facebook: String,
-      youtube: String,
-      tiktok: String,
       instagram: String,
     },
     featuredImage: {

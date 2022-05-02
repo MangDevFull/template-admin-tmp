@@ -3,16 +3,17 @@ import {Category} from '../models/category.model.js'
 import { projectStatusEnum } from '../enums/projectStatus.enum.js';
 import { Response } from '../utils/response.js';
 import { categoryTypeEnum } from '../enums/categoryType.enum.js';
+import httpMsgs from "http-msgs";
 
 const ProjectService = {
   showList: async (req, res, next) => {
     try {
-      const projects = await Project.find({
-        status: projectStatusEnum.PUBLISHED,
-      }).sort({ createdAt: -1 });
-      return res.render('list-projects', {
+      const projects = await Project.find().populate('category').sort({ createdAt: -1 });
+
+      console.log(projects)
+      return res.render('list-project', {
         projects: projects,
-        title: 'Danh sách dự án',
+        title: 'Project List',
       });
     } catch (err) {
       console.error(err);
@@ -24,8 +25,10 @@ const ProjectService = {
     try {
       const { slug } = req.params;
       const project = await Project.findOne({ slug: slug }).populate('category');
-      return res.render('article-details', {
+      const categories = await Category.find({type: categoryTypeEnum.PROJECT,_id:{$ne:project.category._id}});
+      return res.render('project-detail', {
         project: project,
+        categories,
         title: project.title,
       });
     } catch (err) {
@@ -37,11 +40,11 @@ const ProjectService = {
   getCreateProject: async(req, res, next) => {
     try {
       const categories = await Category.find({type: categoryTypeEnum.PROJECT});
-
-      return res.render('/create-project', {
-        categories,
-        title: "Create project"
+      return  res.render('create-project',{
+        cates: categories,
+        title: "Project create",
       })
+     
     } catch(err) {
       console.error(err);
       return next(err);
@@ -53,18 +56,18 @@ const ProjectService = {
       const { title, thumbnail, content, category, status } = req.body;
 
       const cat = await Category.findOne({_id: category, type: categoryTypeEnum.PROJECT})
-      if(!cat) return res.json(Response.notFound())
+      if(!cat) return  httpMsgs.sendJSON(req,res,{"boolean":false});
 
       const project = await Project.create({
         title,
-        content,
+        content: content || "content",
         thumbnail,
         category: category,
         status,
       });
 
-      // return res.json(Response.success()) or return res.render()...
-      return res.redirect('/');
+      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":project})
+
     } catch (err) {
       console.error(err);
       return next(err);
@@ -73,11 +76,12 @@ const ProjectService = {
 
   updateProject: async (req, res, next) => {
     try {
-      const { id } = req.params;
-      const project = await Project.findById(id);
+      const { slug } = req.params;
+      const project = await Project.findOne({ slug: slug});
       if (!project) return res.json(Response.notFound());
 
       const { title, content, thumbnail, category, status } = req.body;
+      console.log(req.body)
       let isChange = false;
       if (title && project.title !== title) {
         project.title = title;
@@ -91,7 +95,7 @@ const ProjectService = {
         project.thumbnail = thumbnail;
         isChange = true;
       }
-      if (status && project.category != category) {
+      if (category && project.category != category) {
         project.category = category;
         isChange = true;
       }
@@ -101,8 +105,7 @@ const ProjectService = {
       }
       if(isChange) await project.save();
 
-      // return res.json(Response.success()) or return res.render()...
-      return res.redirect('/');
+      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":project})
     } catch (err) {
       console.error(err);
       return next(err);

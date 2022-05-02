@@ -35,10 +35,14 @@ const articleSchema = new Schema(
     source: {
       type: String,
     },
+    tags: 
+      [{type: Schema.Types.ObjectId,
+        ref: 'Tag',}]
+    ,
     slug: {
       type: String,
       default() {
-        if (this.name) {
+        if (this.title) {
           return `${slugify(this.title)}-${nanoid(6)}`;
         }
       },

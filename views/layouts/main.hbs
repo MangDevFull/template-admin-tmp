@@ -1,595 +1,283 @@
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <title>TMP Technology - {{title}}</title>
+    <meta charset="utf-8" />
+    <title>{{title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/img/icon-favico-goc.svg">
+    
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap"
-            rel="stylesheet"
-    />
+    <!-- DataTables -->
+    <link href="/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet"
+        type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet"
+        type="text/css" />
+
+    <!-- plugin css -->
+    <link href="/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet"
+        type="text/css" />
+  <link href="/assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" />
+    <!-- preloader css -->
+    <link rel="stylesheet" href="/assets/css/preloader.min.css" type="text/css" />
+
+    <!-- twitter-bootstrap-wizard css -->
+    <link rel="stylesheet" href="/assets/libs/twitter-bootstrap-wizard/prettify.css">
 
 
-    <link href="/assets/css/bootstrap.css" rel="stylesheet"/>
-    <link href="/assets/css/style.css" rel="stylesheet"/>
+    <!-- Bootstrap Css -->
+    <link href="/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <style>
+            .center {
+margin: auto;
+width: 60%;
+padding: auto;
+},
+.thank-you-pop{
+	width:100%;
+ 	padding:20px;
+	text-align:center;
+}
+.thank-you-pop img{
+	width:76px;
+	height:auto;
+	margin:0 auto;
+	display:block;
+	margin-bottom:25px;
+}
 
-    <link href="/assets/css/responsive.css" rel="stylesheet"/>
+.thank-you-pop h1{
+	font-size: 42px;
+    margin-bottom: 25px;
+	color:#5C5C5C;
+}
+.thank-you-pop p{
+	font-size: 20px;
+    margin-bottom: 27px;
+ 	color:#5C5C5C;
+}
+.thank-you-pop h3.cupon-pop{
+	font-size: 25px;
+    margin-bottom: 40px;
+	color:#222;
+	display:inline-block;
+	text-align:center;
+	padding:10px 20px;
+	border:2px dashed #222;
+	clear:both;
+	font-weight:normal;
+}
+.thank-you-pop h3.cupon-pop span{
+	color:#03A9F4;
+}
+.thank-you-pop a{
+	display: inline-block;
+    margin: 0 auto;
+    padding: 9px 20px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    background-color: #8BC34A;
+    border-radius: 17px;
+}
+.thank-you-pop a i{
+	margin-right:5px;
+	color:#fff;
+}
+#ignismyModal .modal-header{
+    border:0px;
+}
+/*--thank you pop ends here--*/
 
-    <link href="/assets/css/color-4.css" rel="stylesheet"/>
-    <link href="/assets/tmp/css/style.css" rel="stylesheet"/>
-
-    <link
-            rel="shortcut icon"
-            href="/assets/images/favicon/ico-logo-tmp-64.ico"
-            type="image/x-icon"
-    />
-
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
-    <!--[if lt IE 9
-      ]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script
-    ><![endif]-->
-
+    </style>
 </head>
 
-<body>
-<div class="page-wrapper">
+<body data-topbar="dark">
 
-    <div class="loader-wrap style-four">
-        <div class="preloader">
-            <div class="preloader-close">Đóng</div>
-        </div>
-        <div class="layer layer-one"><span class="overlay"></span></div>
-        <div class="layer layer-two"><span class="overlay"></span></div>
-        <div class="layer layer-three"><span class="overlay"></span></div>
-    </div>
+    <!-- <body data-layout="horizontal"> -->
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
 
 
-    <header class="main-header header-style-one">
+        <header id="page-topbar">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <!-- LOGO -->
+                    <div class="navbar-brand-box">
+                        <a href="/" class="logo logo-dark">
+                            <span class="logo-sm">
+                                <img src="/assets/logos/logo-tmp.png" alt="" height="20">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="/assets/logos/logo-tmp.png" alt="" height="60"> 
+                            </span>
+                        </a>
 
-        <div class="header-top">
-            <div class="auto-container">
-                <div class="inner">
-                    <div class="left-right">
-                        <div class="text">
-                            TMP TECHNOLOGY CORPORATION
+                        <a href="/" class="logo logo-light">
+                            <span class="logo-sm">
+                                <img src="/assets/logos/logo-tmp.png" alt="" height="20">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="/assets/logos/logo-tmp.png" alt="" height="60"> 
+                            </span>
+                        </a>
+                    </div>
+
+                    <button type="button" class="btn btn-sm px-3 font-size-16 header-item" id="vertical-menu-btn">
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+                    
+                </div>
+
+                <div class="d-flex">
+
+                    <div class="dropdown d-inline-block d-lg-none ms-2">
+                        <button type="button" class="btn header-item" id="page-header-search-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i data-feather="search" class="icon-lg"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                            aria-labelledby="page-header-search-dropdown">
+
+                            <form class="p-3">
+                                <div class="form-group m-0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search ..."
+                                            aria-label="Search Result">
+
+                                        <button class="btn btn-primary" type="submit"><i
+                                                class="mdi mdi-magnify"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="dropdown d-none d-sm-inline-block">
+                        <button type="button" class="btn header-item" id="mode-setting-btn">
+                            <i data-feather="moon" class="icon-lg layout-mode-dark"></i>
+                            <i data-feather="sun" class="icon-lg layout-mode-light"></i>
+                        </button>
+                    </div>
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item bg-soft-light border-start border-end"
+                            id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <i data-feather="user" class="icon-lg"></i>
+                            <span class="d-none d-xl-inline-block ms-1 fw-medium">Admin</span>
+                            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <!-- item-->
+                            {{!-- <a class="dropdown-item" href="./profile"><i
+                                    class="mdi mdi-face-profile font-size-16 align-middle me-1"></i> Thông tin</a> --}}
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/auth/logout"><i
+                                    class="mdi mdi-logout font-size-16 align-middle me-1"></i> Đăng xuất</a>
                         </div>
                     </div>
 
-                    <div class="top-right">
-                        <ul class="contact-info">
-                            <li>
-                                <i class="flaticon-clock" style="color:#fff"></i>Giờ làm việc: Từ 8:30 đến
-                                17:30
-                            </li>
-                            <li>
-                                <a href="tel:{{info.hotlineHref}}"><i class="flaticon-phone" style="color:#fff"></i>{{info.hotline}}</a>
-                            </li>
-                        </ul>
-                        <div class="language">
-
-                        </div>
-                    </div>
                 </div>
             </div>
-        </div>
+        </header>
 
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="vertical-menu">
 
-        <div class="header-upper">
-            <div class="auto-container">
-                <div class="inner-container clearfix">
+            <div data-simplebar class="h-100">
 
-                    <div class="logo-box">
-                        <div class="logo">
-                            <a href="/">
-                                <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="120px"
-                                        fill="#f83600"
-                                        version="1.1"
-                                        id="Layer_1"
-                                        x="0px"
-                                        y="0px"
-                                        viewBox="0 0 120 58"
-                                        style="enable-background:new 0 0 120 58;"
-                                        xml:space="preserve"
-                                >
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu list-unstyled" id="side-menu">
+                        <li class="menu-title" data-key="t-menu">Menu</li>
 
-                      <g>
-                        <path
-                                class="st6"
-                                d="M97,30l-5.1,4.9v22.5c0,0,3.6,0.1,5.7-3.1c0.7-1.1,1.1-2.5,1.1-3.8V31.4L97,30z"
-                        ></path>
-                          <path
-                                  class="st6"
-                                  d="M57.7,21.5l-0.6,0.6L53,26.3c-2.6-2.3-4.9-5.4-8.7-5.3c-3.5,0.1-6.6,2.7-13.5,10.2c-0.6,0.7-1.3,1.4-2,2.2   c-8.3,9.1-12.8,8.9-15,8.9c-2.2,0-4.8-1-4.8-1v-7.3c0.8,0.4,2.2,1.4,3.9,1.5c0.6,0.1,1.4,0.1,2.1,0c0.3-0.1,0.8-0.1,1.3-0.3   c0.6-0.2,1-0.4,1-0.5c0.3-0.2,0.7-0.4,1.2-0.8c7.2-6.2,11-11.7,17.1-16.5c0.8-0.6,2.3-1.9,4.7-2.6c1.3-0.4,2.8-0.7,4.3-0.7   c3.4,0,6.4,1.3,8.9,3.3C54.2,18,57.7,21.5,57.7,21.5"
-                          ></path>
-                          <path
-                                  class="st6"
-                                  d="M88.4,21.5l-0.6,0.6l-4.1,4.2c-2.6-2.3-4.9-5.4-8.7-5.3c-3.5,0.1-6.6,2.7-13.5,10.2c-0.5,0.6-1.1,1.2-1.7,1.9   l-4.7-4.7c3.9-4,7.1-7.7,11.2-11c0.8-0.6,2.3-1.9,4.7-2.7c1.3-0.4,2.8-0.7,4.3-0.7c3.4,0,6.4,1.3,8.9,3.3   C84.9,18,88.4,21.5,88.4,21.5"
-                          ></path>
-                          <path
-                                  class="st6"
-                                  d="M16.7,8.2v6c-0.9,0-10.4,0-10.4,0V40c-0.1,0-0.1,0-0.2,0c-0.1,0-0.2-0.1-0.2-0.1c-0.7-0.5-1.4-1.1-2.1-1.8   c0,0-1.9-1.8-3.3-5.6c-0.1-0.2-0.3-0.9-0.4-1.4C0,30.6,0,30.1,0,29.6V0.1c2.8-0.2,4.6,1.8,5.5,3.3c0.5,0.9,0.8,1.9,0.8,3v1.9H16.7z   "
-                          ></path>
-                          <path
-                                  class="st6"
-                                  d="M120,28.2c0,5.7-3.4,10.6-8.2,12.8c0,0,0,0-0.1,0c-1.4,0.6-2.8,0.9-3.9,1.1c-0.6,0.1-1.1,0.1-1.7,0.1   c-1.9,0-3.4-0.4-5.1-1.1v-7.4c1.6,1.2,3.4,1.9,5.3,1.9c4-0.1,6.8-3.1,7.2-6.9c0.3-4.2-2.7-7.4-6.6-7.9c-0.3,0-0.7-0.1-1,0   c-2.2,0.1-3.9,1.1-5.5,2.7c-0.3,0.3-5.3,5.2-8,8c-0.9,0.9-1.5,1.6-1.7,1.7l-4.5-4.7c2.5-2.5,5.2-5.4,8.5-8.5c0.9-0.9,1.9-1.7,3-2.6   c1.7-1.4,3.2-2.2,4.4-2.7c1.2-0.3,2.4-0.5,3.6-0.6c0.1,0,0.3,0,0.4,0h0.2c2.6,0,5,0.8,7.1,2c0.1,0,0.1,0.1,0.2,0.1   c2.5,1.6,4.4,4,5.6,6.6c0,0,0,0.1,0.1,0.1C119.7,24.6,120,26.3,120,28.2"
-                          ></path>
-                          <polygon
-                                  class="st6"
-                                  points="2.6,57.4 2.6,50 0.3,50 0.3,49.5 5.6,49.5 5.6,50 3.2,50 3.2,57.4  "
-                          ></polygon>
-                          <path
-                                  class="st6"
-                                  d="M8.2,57.4v-7.9h4.6V50h-4v6.8h4v0.6H8.2z M8.5,53h3.7v0.6H8.5V53z"
-                          ></path>
-                          <path
-                                  class="st6"
-                                  d="M19.3,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.3-0.8c-0.4-0.4-0.6-0.8-0.8-1.3c-0.2-0.5-0.3-1-0.3-1.6   s0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.2-0.8c0.5-0.2,1-0.3,1.6-0.3c0.4,0,0.7,0.1,1.1,0.2   c0.4,0.1,0.7,0.3,1,0.5c0.3,0.2,0.6,0.4,0.8,0.7l-0.4,0.4c-0.2-0.2-0.4-0.5-0.6-0.6c-0.3-0.2-0.6-0.3-0.9-0.4   C19.8,50,19.5,50,19.2,50c-0.5,0-0.9,0.1-1.3,0.3c-0.4,0.2-0.8,0.4-1,0.7c-0.3,0.3-0.5,0.7-0.7,1.1c-0.2,0.4-0.2,0.9-0.2,1.4   c0,0.5,0.1,1,0.2,1.4c0.2,0.4,0.4,0.8,0.7,1.1c0.3,0.3,0.7,0.6,1.1,0.7c0.4,0.2,0.9,0.3,1.4,0.3c0.3,0,0.6,0,0.9-0.1   c0.3-0.1,0.6-0.2,0.8-0.4c0.2-0.2,0.4-0.3,0.6-0.5l0.3,0.5c-0.2,0.2-0.4,0.4-0.7,0.6c-0.3,0.2-0.6,0.3-0.9,0.4   C19.9,57.4,19.6,57.5,19.3,57.5"
-                          ></path>
-                          <path
-                                  class="st6"
-                                  d="M24.7,49.5h0.6v7.9h-0.6V49.5z M25,53.1h5.3v0.6H25V53.1z M30.1,49.5h0.6v7.9h-0.6V49.5z"
-                          ></path>
-                          <path
-                                  class="st6"
-                                  d="M34.3,57.4v-7.9h0.5l5.5,7.2L40.2,57c0-0.1,0-0.2,0-0.5c0-0.3,0-0.6,0-0.9c0-0.4,0-0.7,0-1.1   c0-0.4,0-0.7,0-1.1c0-0.3,0-0.6,0-0.7v-3.2h0.6v7.9h-0.5l-5.5-7.3l0.2-0.3c0,0.2,0,0.4,0,0.6c0,0.3,0,0.6,0,0.9c0,0.3,0,0.6,0,0.9   s0,0.6,0,0.8c0,0.2,0,0.4,0,0.4v3.9H34.3z"
-                          ></path>
-                          <path
-                                  class="st6"
-                                  d="M47.5,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.2-0.8c-0.4-0.4-0.6-0.8-0.8-1.3c-0.2-0.5-0.3-1-0.3-1.6   c0-0.6,0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.2-0.8c0.5-0.2,1-0.3,1.6-0.3c0.6,0,1.1,0.1,1.6,0.3   c0.5,0.2,0.9,0.5,1.2,0.8c0.3,0.4,0.6,0.8,0.8,1.3c0.2,0.5,0.3,1,0.3,1.6c0,0.6-0.1,1.1-0.3,1.6c-0.2,0.5-0.5,0.9-0.8,1.3   c-0.3,0.4-0.8,0.6-1.2,0.8C48.6,57.4,48,57.5,47.5,57.5 M47.5,56.9c0.5,0,0.9-0.1,1.3-0.3c0.4-0.2,0.8-0.4,1-0.7   c0.3-0.3,0.5-0.7,0.7-1.1c0.2-0.4,0.2-0.9,0.2-1.4c0-0.5-0.1-1-0.2-1.4c-0.2-0.4-0.4-0.8-0.7-1.1c-0.3-0.3-0.6-0.6-1-0.7   c-0.4-0.2-0.8-0.3-1.3-0.3c-0.5,0-0.9,0.1-1.3,0.3c-0.4,0.2-0.8,0.4-1,0.7c-0.3,0.3-0.5,0.7-0.7,1.1c-0.2,0.4-0.2,0.9-0.2,1.4   c0,0.5,0.1,1,0.2,1.4s0.4,0.8,0.7,1.1c0.3,0.3,0.6,0.6,1,0.7C46.6,56.8,47,56.9,47.5,56.9"
-                          ></path>
-                          <polygon
-                                  class="st6"
-                                  points="54.3,57.4 54.3,49.5 54.8,49.5 54.8,56.8 58.7,56.8 58.7,57.4  "
-                          ></polygon>
-                          <path
-                                  class="st6"
-                                  d="M64.5,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.2-0.8c-0.4-0.4-0.6-0.8-0.8-1.3c-0.2-0.5-0.3-1-0.3-1.6   c0-0.6,0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.2-0.8c0.5-0.2,1-0.3,1.6-0.3c0.6,0,1.1,0.1,1.6,0.3   c0.5,0.2,0.9,0.5,1.2,0.8c0.3,0.4,0.6,0.8,0.8,1.3c0.2,0.5,0.3,1,0.3,1.6c0,0.6-0.1,1.1-0.3,1.6c-0.2,0.5-0.5,0.9-0.8,1.3   c-0.3,0.4-0.8,0.6-1.2,0.8C65.6,57.4,65,57.5,64.5,57.5 M64.5,56.9c0.5,0,0.9-0.1,1.3-0.3c0.4-0.2,0.8-0.4,1-0.7   c0.3-0.3,0.5-0.7,0.7-1.1c0.2-0.4,0.2-0.9,0.2-1.4c0-0.5-0.1-1-0.2-1.4c-0.2-0.4-0.4-0.8-0.7-1.1c-0.3-0.3-0.6-0.6-1-0.7   C65.4,50.1,65,50,64.5,50c-0.5,0-0.9,0.1-1.3,0.3c-0.4,0.2-0.8,0.4-1,0.7c-0.3,0.3-0.5,0.7-0.7,1.1c-0.2,0.4-0.2,0.9-0.2,1.4   c0,0.5,0.1,1,0.2,1.4c0.2,0.4,0.4,0.8,0.7,1.1c0.3,0.3,0.6,0.6,1,0.7C63.6,56.8,64,56.9,64.5,56.9"
-                          ></path>
-                          <path
-                                  class="st6"
-                                  d="M74.8,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.3-0.8c-0.4-0.4-0.7-0.8-0.9-1.3c-0.2-0.5-0.3-1-0.3-1.6   c0-0.6,0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.3-0.8c0.5-0.2,1-0.3,1.6-0.3c0.4,0,0.8,0.1,1.2,0.2   c0.4,0.1,0.8,0.3,1.1,0.5c0.3,0.2,0.6,0.4,0.8,0.7l-0.4,0.4c-0.2-0.2-0.4-0.4-0.7-0.6c-0.3-0.2-0.6-0.3-0.9-0.4   C75.3,50,75,50,74.7,50c-0.5,0-0.9,0.1-1.4,0.3c-0.4,0.2-0.8,0.4-1.1,0.7c-0.3,0.3-0.6,0.7-0.7,1.1c-0.2,0.4-0.3,0.9-0.3,1.4   c0,0.5,0.1,1,0.3,1.4c0.2,0.4,0.4,0.8,0.8,1.1c0.3,0.3,0.7,0.6,1.1,0.7c0.4,0.2,0.9,0.3,1.4,0.3c0.4,0,0.8-0.1,1.2-0.2   c0.4-0.1,0.7-0.3,0.9-0.5c0.3-0.2,0.5-0.5,0.6-0.8c0.1-0.3,0.2-0.6,0.2-1v-0.5l0.2,0.3h-3.1v-0.6h3.5c0,0,0,0.1,0,0.2   c0,0.1,0,0.2,0,0.3c0,0.1,0,0.2,0,0.2c0,0.5-0.1,0.9-0.3,1.3c-0.2,0.4-0.4,0.7-0.7,1c-0.3,0.3-0.7,0.5-1.1,0.7   C75.7,57.4,75.3,57.5,74.8,57.5"
-                          ></path>
-                          <polygon
-                                  class="st6"
-                                  points="83,57.4 83,53.4 83,54 79.8,49.5 80.5,49.5 83.3,53.4 83.1,53.4 85.8,49.5 86.4,49.5 83.3,54.1    83.5,53.3 83.5,57.4  "
-                          ></polygon>
-                      </g>
-                    </svg>
+                        <li>
+                            <a href='/'>
+                                <i data-feather="home"></i>
+                                <span class="badge rounded-pill bg-soft-success text-success float-end"></span>
+                                <span data-key="t-dashboard">Homepage</span>
                             </a>
-                        </div>
-                    </div>
+                        </li>
 
-                    <div class="nav-outer clearfix">
-
-                        <div class="mobile-nav-toggler">
-                            <img src="assets/images/icons/icon-bar.png" alt=""/>
-                        </div>
-
-
-                        <nav class="main-menu navbar-expand-md navbar-light">
-                            <div
-                                    class="collapse navbar-collapse show clearfix"
-                                    id="navbarSupportedContent"
-                            >
-                                <ul class="navigation clearfix">
-                                    <li>
-                                        <a href="/">Trang chủ</a>
-                                    </li>
-                                    <li>
-                                        <a href="/about">Về chúng tôi</a>
-
-                                    </li>
-                                    <li>
-                                        <a href="/service">Sản phẩm và dịch vụ</a>
-
-                                    </li>
-                                    <li>
-                                        <a href="/news">Tin tức</a>
-
-                                    </li>
-                                    <li>
-                                        <a href="/careers">Tuyển dụng</a>
-
-                                    </li>
-                                    <li>
-                                        <a href="/contact">Liên hệ</a>
-
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="sticky-header">
-            <div class="header-upper">
-                <div class="auto-container">
-                    <div class="inner-container clearfix">
-
-                        <div class="logo-box">
-                            <div class="logo">
-                                <a href="/">
-                                    <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="120px"
-                                            fill="#f83600"
-                                            version="1.1"
-                                            id="Layer_1"
-                                            x="0px"
-                                            y="0px"
-                                            viewBox="0 0 120 58"
-                                            style="enable-background:new 0 0 120 58;"
-                                            xml:space="preserve"
-                                    >
-
-                        <g>
-                          <path
-                                  class="st6"
-                                  d="M97,30l-5.1,4.9v22.5c0,0,3.6,0.1,5.7-3.1c0.7-1.1,1.1-2.5,1.1-3.8V31.4L97,30z"
-                          ></path>
-                            <path
-                                    class="st6"
-                                    d="M57.7,21.5l-0.6,0.6L53,26.3c-2.6-2.3-4.9-5.4-8.7-5.3c-3.5,0.1-6.6,2.7-13.5,10.2c-0.6,0.7-1.3,1.4-2,2.2   c-8.3,9.1-12.8,8.9-15,8.9c-2.2,0-4.8-1-4.8-1v-7.3c0.8,0.4,2.2,1.4,3.9,1.5c0.6,0.1,1.4,0.1,2.1,0c0.3-0.1,0.8-0.1,1.3-0.3   c0.6-0.2,1-0.4,1-0.5c0.3-0.2,0.7-0.4,1.2-0.8c7.2-6.2,11-11.7,17.1-16.5c0.8-0.6,2.3-1.9,4.7-2.6c1.3-0.4,2.8-0.7,4.3-0.7   c3.4,0,6.4,1.3,8.9,3.3C54.2,18,57.7,21.5,57.7,21.5"
-                            ></path>
-                            <path
-                                    class="st6"
-                                    d="M88.4,21.5l-0.6,0.6l-4.1,4.2c-2.6-2.3-4.9-5.4-8.7-5.3c-3.5,0.1-6.6,2.7-13.5,10.2c-0.5,0.6-1.1,1.2-1.7,1.9   l-4.7-4.7c3.9-4,7.1-7.7,11.2-11c0.8-0.6,2.3-1.9,4.7-2.7c1.3-0.4,2.8-0.7,4.3-0.7c3.4,0,6.4,1.3,8.9,3.3   C84.9,18,88.4,21.5,88.4,21.5"
-                            ></path>
-                            <path
-                                    class="st6"
-                                    d="M16.7,8.2v6c-0.9,0-10.4,0-10.4,0V40c-0.1,0-0.1,0-0.2,0c-0.1,0-0.2-0.1-0.2-0.1c-0.7-0.5-1.4-1.1-2.1-1.8   c0,0-1.9-1.8-3.3-5.6c-0.1-0.2-0.3-0.9-0.4-1.4C0,30.6,0,30.1,0,29.6V0.1c2.8-0.2,4.6,1.8,5.5,3.3c0.5,0.9,0.8,1.9,0.8,3v1.9H16.7z   "
-                            ></path>
-                            <path
-                                    class="st6"
-                                    d="M120,28.2c0,5.7-3.4,10.6-8.2,12.8c0,0,0,0-0.1,0c-1.4,0.6-2.8,0.9-3.9,1.1c-0.6,0.1-1.1,0.1-1.7,0.1   c-1.9,0-3.4-0.4-5.1-1.1v-7.4c1.6,1.2,3.4,1.9,5.3,1.9c4-0.1,6.8-3.1,7.2-6.9c0.3-4.2-2.7-7.4-6.6-7.9c-0.3,0-0.7-0.1-1,0   c-2.2,0.1-3.9,1.1-5.5,2.7c-0.3,0.3-5.3,5.2-8,8c-0.9,0.9-1.5,1.6-1.7,1.7l-4.5-4.7c2.5-2.5,5.2-5.4,8.5-8.5c0.9-0.9,1.9-1.7,3-2.6   c1.7-1.4,3.2-2.2,4.4-2.7c1.2-0.3,2.4-0.5,3.6-0.6c0.1,0,0.3,0,0.4,0h0.2c2.6,0,5,0.8,7.1,2c0.1,0,0.1,0.1,0.2,0.1   c2.5,1.6,4.4,4,5.6,6.6c0,0,0,0.1,0.1,0.1C119.7,24.6,120,26.3,120,28.2"
-                            ></path>
-                            <polygon
-                                    class="st6"
-                                    points="2.6,57.4 2.6,50 0.3,50 0.3,49.5 5.6,49.5 5.6,50 3.2,50 3.2,57.4  "
-                            ></polygon>
-                            <path
-                                    class="st6"
-                                    d="M8.2,57.4v-7.9h4.6V50h-4v6.8h4v0.6H8.2z M8.5,53h3.7v0.6H8.5V53z"
-                            ></path>
-                            <path
-                                    class="st6"
-                                    d="M19.3,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.3-0.8c-0.4-0.4-0.6-0.8-0.8-1.3c-0.2-0.5-0.3-1-0.3-1.6   s0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.2-0.8c0.5-0.2,1-0.3,1.6-0.3c0.4,0,0.7,0.1,1.1,0.2   c0.4,0.1,0.7,0.3,1,0.5c0.3,0.2,0.6,0.4,0.8,0.7l-0.4,0.4c-0.2-0.2-0.4-0.5-0.6-0.6c-0.3-0.2-0.6-0.3-0.9-0.4   C19.8,50,19.5,50,19.2,50c-0.5,0-0.9,0.1-1.3,0.3c-0.4,0.2-0.8,0.4-1,0.7c-0.3,0.3-0.5,0.7-0.7,1.1c-0.2,0.4-0.2,0.9-0.2,1.4   c0,0.5,0.1,1,0.2,1.4c0.2,0.4,0.4,0.8,0.7,1.1c0.3,0.3,0.7,0.6,1.1,0.7c0.4,0.2,0.9,0.3,1.4,0.3c0.3,0,0.6,0,0.9-0.1   c0.3-0.1,0.6-0.2,0.8-0.4c0.2-0.2,0.4-0.3,0.6-0.5l0.3,0.5c-0.2,0.2-0.4,0.4-0.7,0.6c-0.3,0.2-0.6,0.3-0.9,0.4   C19.9,57.4,19.6,57.5,19.3,57.5"
-                            ></path>
-                            <path
-                                    class="st6"
-                                    d="M24.7,49.5h0.6v7.9h-0.6V49.5z M25,53.1h5.3v0.6H25V53.1z M30.1,49.5h0.6v7.9h-0.6V49.5z"
-                            ></path>
-                            <path
-                                    class="st6"
-                                    d="M34.3,57.4v-7.9h0.5l5.5,7.2L40.2,57c0-0.1,0-0.2,0-0.5c0-0.3,0-0.6,0-0.9c0-0.4,0-0.7,0-1.1   c0-0.4,0-0.7,0-1.1c0-0.3,0-0.6,0-0.7v-3.2h0.6v7.9h-0.5l-5.5-7.3l0.2-0.3c0,0.2,0,0.4,0,0.6c0,0.3,0,0.6,0,0.9c0,0.3,0,0.6,0,0.9   s0,0.6,0,0.8c0,0.2,0,0.4,0,0.4v3.9H34.3z"
-                            ></path>
-                            <path
-                                    class="st6"
-                                    d="M47.5,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.2-0.8c-0.4-0.4-0.6-0.8-0.8-1.3c-0.2-0.5-0.3-1-0.3-1.6   c0-0.6,0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.2-0.8c0.5-0.2,1-0.3,1.6-0.3c0.6,0,1.1,0.1,1.6,0.3   c0.5,0.2,0.9,0.5,1.2,0.8c0.3,0.4,0.6,0.8,0.8,1.3c0.2,0.5,0.3,1,0.3,1.6c0,0.6-0.1,1.1-0.3,1.6c-0.2,0.5-0.5,0.9-0.8,1.3   c-0.3,0.4-0.8,0.6-1.2,0.8C48.6,57.4,48,57.5,47.5,57.5 M47.5,56.9c0.5,0,0.9-0.1,1.3-0.3c0.4-0.2,0.8-0.4,1-0.7   c0.3-0.3,0.5-0.7,0.7-1.1c0.2-0.4,0.2-0.9,0.2-1.4c0-0.5-0.1-1-0.2-1.4c-0.2-0.4-0.4-0.8-0.7-1.1c-0.3-0.3-0.6-0.6-1-0.7   c-0.4-0.2-0.8-0.3-1.3-0.3c-0.5,0-0.9,0.1-1.3,0.3c-0.4,0.2-0.8,0.4-1,0.7c-0.3,0.3-0.5,0.7-0.7,1.1c-0.2,0.4-0.2,0.9-0.2,1.4   c0,0.5,0.1,1,0.2,1.4s0.4,0.8,0.7,1.1c0.3,0.3,0.6,0.6,1,0.7C46.6,56.8,47,56.9,47.5,56.9"
-                            ></path>
-                            <polygon
-                                    class="st6"
-                                    points="54.3,57.4 54.3,49.5 54.8,49.5 54.8,56.8 58.7,56.8 58.7,57.4  "
-                            ></polygon>
-                            <path
-                                    class="st6"
-                                    d="M64.5,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.2-0.8c-0.4-0.4-0.6-0.8-0.8-1.3c-0.2-0.5-0.3-1-0.3-1.6   c0-0.6,0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.2-0.8c0.5-0.2,1-0.3,1.6-0.3c0.6,0,1.1,0.1,1.6,0.3   c0.5,0.2,0.9,0.5,1.2,0.8c0.3,0.4,0.6,0.8,0.8,1.3c0.2,0.5,0.3,1,0.3,1.6c0,0.6-0.1,1.1-0.3,1.6c-0.2,0.5-0.5,0.9-0.8,1.3   c-0.3,0.4-0.8,0.6-1.2,0.8C65.6,57.4,65,57.5,64.5,57.5 M64.5,56.9c0.5,0,0.9-0.1,1.3-0.3c0.4-0.2,0.8-0.4,1-0.7   c0.3-0.3,0.5-0.7,0.7-1.1c0.2-0.4,0.2-0.9,0.2-1.4c0-0.5-0.1-1-0.2-1.4c-0.2-0.4-0.4-0.8-0.7-1.1c-0.3-0.3-0.6-0.6-1-0.7   C65.4,50.1,65,50,64.5,50c-0.5,0-0.9,0.1-1.3,0.3c-0.4,0.2-0.8,0.4-1,0.7c-0.3,0.3-0.5,0.7-0.7,1.1c-0.2,0.4-0.2,0.9-0.2,1.4   c0,0.5,0.1,1,0.2,1.4c0.2,0.4,0.4,0.8,0.7,1.1c0.3,0.3,0.6,0.6,1,0.7C63.6,56.8,64,56.9,64.5,56.9"
-                            ></path>
-                            <path
-                                    class="st6"
-                                    d="M74.8,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.3-0.8c-0.4-0.4-0.7-0.8-0.9-1.3c-0.2-0.5-0.3-1-0.3-1.6   c0-0.6,0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.3-0.8c0.5-0.2,1-0.3,1.6-0.3c0.4,0,0.8,0.1,1.2,0.2   c0.4,0.1,0.8,0.3,1.1,0.5c0.3,0.2,0.6,0.4,0.8,0.7l-0.4,0.4c-0.2-0.2-0.4-0.4-0.7-0.6c-0.3-0.2-0.6-0.3-0.9-0.4   C75.3,50,75,50,74.7,50c-0.5,0-0.9,0.1-1.4,0.3c-0.4,0.2-0.8,0.4-1.1,0.7c-0.3,0.3-0.6,0.7-0.7,1.1c-0.2,0.4-0.3,0.9-0.3,1.4   c0,0.5,0.1,1,0.3,1.4c0.2,0.4,0.4,0.8,0.8,1.1c0.3,0.3,0.7,0.6,1.1,0.7c0.4,0.2,0.9,0.3,1.4,0.3c0.4,0,0.8-0.1,1.2-0.2   c0.4-0.1,0.7-0.3,0.9-0.5c0.3-0.2,0.5-0.5,0.6-0.8c0.1-0.3,0.2-0.6,0.2-1v-0.5l0.2,0.3h-3.1v-0.6h3.5c0,0,0,0.1,0,0.2   c0,0.1,0,0.2,0,0.3c0,0.1,0,0.2,0,0.2c0,0.5-0.1,0.9-0.3,1.3c-0.2,0.4-0.4,0.7-0.7,1c-0.3,0.3-0.7,0.5-1.1,0.7   C75.7,57.4,75.3,57.5,74.8,57.5"
-                            ></path>
-                            <polygon
-                                    class="st6"
-                                    points="83,57.4 83,53.4 83,54 79.8,49.5 80.5,49.5 83.3,53.4 83.1,53.4 85.8,49.5 86.4,49.5 83.3,54.1    83.5,53.3 83.5,57.4  "
-                            ></polygon>
-                        </g>
-                      </svg>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="nav-outer clearfix">
-
-                            <div class="mobile-nav-toggler">
-                                <img src="assets/images/icons/icon-bar.png" alt=""/>
-                            </div>
-
-
-                            <nav class="main-menu navbar-expand-md navbar-light"></nav>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="mobile-menu">
-            <div class="menu-backdrop"></div>
-            <div class="close-btn">
-                <span class="icon flaticon-remove"></span>
-            </div>
-
-            <nav class="menu-box">
-                <div class="nav-logo">
-                    <a href="/">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="120px"
-                             fill="#f83600" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 120 58"
-                             style="enable-background:new 0 0 120 58;" xml:space="preserve">
-
-                      <g>
-                        <path class="st6"
-                              d="M97,30l-5.1,4.9v22.5c0,0,3.6,0.1,5.7-3.1c0.7-1.1,1.1-2.5,1.1-3.8V31.4L97,30z"></path>
-                          <path class="st6"
-                                d="M57.7,21.5l-0.6,0.6L53,26.3c-2.6-2.3-4.9-5.4-8.7-5.3c-3.5,0.1-6.6,2.7-13.5,10.2c-0.6,0.7-1.3,1.4-2,2.2   c-8.3,9.1-12.8,8.9-15,8.9c-2.2,0-4.8-1-4.8-1v-7.3c0.8,0.4,2.2,1.4,3.9,1.5c0.6,0.1,1.4,0.1,2.1,0c0.3-0.1,0.8-0.1,1.3-0.3   c0.6-0.2,1-0.4,1-0.5c0.3-0.2,0.7-0.4,1.2-0.8c7.2-6.2,11-11.7,17.1-16.5c0.8-0.6,2.3-1.9,4.7-2.6c1.3-0.4,2.8-0.7,4.3-0.7   c3.4,0,6.4,1.3,8.9,3.3C54.2,18,57.7,21.5,57.7,21.5"></path>
-                          <path class="st6"
-                                d="M88.4,21.5l-0.6,0.6l-4.1,4.2c-2.6-2.3-4.9-5.4-8.7-5.3c-3.5,0.1-6.6,2.7-13.5,10.2c-0.5,0.6-1.1,1.2-1.7,1.9   l-4.7-4.7c3.9-4,7.1-7.7,11.2-11c0.8-0.6,2.3-1.9,4.7-2.7c1.3-0.4,2.8-0.7,4.3-0.7c3.4,0,6.4,1.3,8.9,3.3   C84.9,18,88.4,21.5,88.4,21.5"></path>
-                          <path class="st6"
-                                d="M16.7,8.2v6c-0.9,0-10.4,0-10.4,0V40c-0.1,0-0.1,0-0.2,0c-0.1,0-0.2-0.1-0.2-0.1c-0.7-0.5-1.4-1.1-2.1-1.8   c0,0-1.9-1.8-3.3-5.6c-0.1-0.2-0.3-0.9-0.4-1.4C0,30.6,0,30.1,0,29.6V0.1c2.8-0.2,4.6,1.8,5.5,3.3c0.5,0.9,0.8,1.9,0.8,3v1.9H16.7z   "></path>
-                          <path class="st6"
-                                d="M120,28.2c0,5.7-3.4,10.6-8.2,12.8c0,0,0,0-0.1,0c-1.4,0.6-2.8,0.9-3.9,1.1c-0.6,0.1-1.1,0.1-1.7,0.1   c-1.9,0-3.4-0.4-5.1-1.1v-7.4c1.6,1.2,3.4,1.9,5.3,1.9c4-0.1,6.8-3.1,7.2-6.9c0.3-4.2-2.7-7.4-6.6-7.9c-0.3,0-0.7-0.1-1,0   c-2.2,0.1-3.9,1.1-5.5,2.7c-0.3,0.3-5.3,5.2-8,8c-0.9,0.9-1.5,1.6-1.7,1.7l-4.5-4.7c2.5-2.5,5.2-5.4,8.5-8.5c0.9-0.9,1.9-1.7,3-2.6   c1.7-1.4,3.2-2.2,4.4-2.7c1.2-0.3,2.4-0.5,3.6-0.6c0.1,0,0.3,0,0.4,0h0.2c2.6,0,5,0.8,7.1,2c0.1,0,0.1,0.1,0.2,0.1   c2.5,1.6,4.4,4,5.6,6.6c0,0,0,0.1,0.1,0.1C119.7,24.6,120,26.3,120,28.2"></path>
-                          <polygon class="st6"
-                                   points="2.6,57.4 2.6,50 0.3,50 0.3,49.5 5.6,49.5 5.6,50 3.2,50 3.2,57.4  "></polygon>
-                          <path class="st6" d="M8.2,57.4v-7.9h4.6V50h-4v6.8h4v0.6H8.2z M8.5,53h3.7v0.6H8.5V53z"></path>
-                          <path class="st6"
-                                d="M19.3,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.3-0.8c-0.4-0.4-0.6-0.8-0.8-1.3c-0.2-0.5-0.3-1-0.3-1.6   s0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.2-0.8c0.5-0.2,1-0.3,1.6-0.3c0.4,0,0.7,0.1,1.1,0.2   c0.4,0.1,0.7,0.3,1,0.5c0.3,0.2,0.6,0.4,0.8,0.7l-0.4,0.4c-0.2-0.2-0.4-0.5-0.6-0.6c-0.3-0.2-0.6-0.3-0.9-0.4   C19.8,50,19.5,50,19.2,50c-0.5,0-0.9,0.1-1.3,0.3c-0.4,0.2-0.8,0.4-1,0.7c-0.3,0.3-0.5,0.7-0.7,1.1c-0.2,0.4-0.2,0.9-0.2,1.4   c0,0.5,0.1,1,0.2,1.4c0.2,0.4,0.4,0.8,0.7,1.1c0.3,0.3,0.7,0.6,1.1,0.7c0.4,0.2,0.9,0.3,1.4,0.3c0.3,0,0.6,0,0.9-0.1   c0.3-0.1,0.6-0.2,0.8-0.4c0.2-0.2,0.4-0.3,0.6-0.5l0.3,0.5c-0.2,0.2-0.4,0.4-0.7,0.6c-0.3,0.2-0.6,0.3-0.9,0.4   C19.9,57.4,19.6,57.5,19.3,57.5"></path>
-                          <path class="st6"
-                                d="M24.7,49.5h0.6v7.9h-0.6V49.5z M25,53.1h5.3v0.6H25V53.1z M30.1,49.5h0.6v7.9h-0.6V49.5z"></path>
-                          <path class="st6"
-                                d="M34.3,57.4v-7.9h0.5l5.5,7.2L40.2,57c0-0.1,0-0.2,0-0.5c0-0.3,0-0.6,0-0.9c0-0.4,0-0.7,0-1.1   c0-0.4,0-0.7,0-1.1c0-0.3,0-0.6,0-0.7v-3.2h0.6v7.9h-0.5l-5.5-7.3l0.2-0.3c0,0.2,0,0.4,0,0.6c0,0.3,0,0.6,0,0.9c0,0.3,0,0.6,0,0.9   s0,0.6,0,0.8c0,0.2,0,0.4,0,0.4v3.9H34.3z"></path>
-                          <path class="st6"
-                                d="M47.5,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.2-0.8c-0.4-0.4-0.6-0.8-0.8-1.3c-0.2-0.5-0.3-1-0.3-1.6   c0-0.6,0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.2-0.8c0.5-0.2,1-0.3,1.6-0.3c0.6,0,1.1,0.1,1.6,0.3   c0.5,0.2,0.9,0.5,1.2,0.8c0.3,0.4,0.6,0.8,0.8,1.3c0.2,0.5,0.3,1,0.3,1.6c0,0.6-0.1,1.1-0.3,1.6c-0.2,0.5-0.5,0.9-0.8,1.3   c-0.3,0.4-0.8,0.6-1.2,0.8C48.6,57.4,48,57.5,47.5,57.5 M47.5,56.9c0.5,0,0.9-0.1,1.3-0.3c0.4-0.2,0.8-0.4,1-0.7   c0.3-0.3,0.5-0.7,0.7-1.1c0.2-0.4,0.2-0.9,0.2-1.4c0-0.5-0.1-1-0.2-1.4c-0.2-0.4-0.4-0.8-0.7-1.1c-0.3-0.3-0.6-0.6-1-0.7   c-0.4-0.2-0.8-0.3-1.3-0.3c-0.5,0-0.9,0.1-1.3,0.3c-0.4,0.2-0.8,0.4-1,0.7c-0.3,0.3-0.5,0.7-0.7,1.1c-0.2,0.4-0.2,0.9-0.2,1.4   c0,0.5,0.1,1,0.2,1.4s0.4,0.8,0.7,1.1c0.3,0.3,0.6,0.6,1,0.7C46.6,56.8,47,56.9,47.5,56.9"></path>
-                          <polygon class="st6"
-                                   points="54.3,57.4 54.3,49.5 54.8,49.5 54.8,56.8 58.7,56.8 58.7,57.4  "></polygon>
-                          <path class="st6"
-                                d="M64.5,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.2-0.8c-0.4-0.4-0.6-0.8-0.8-1.3c-0.2-0.5-0.3-1-0.3-1.6   c0-0.6,0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.2-0.8c0.5-0.2,1-0.3,1.6-0.3c0.6,0,1.1,0.1,1.6,0.3   c0.5,0.2,0.9,0.5,1.2,0.8c0.3,0.4,0.6,0.8,0.8,1.3c0.2,0.5,0.3,1,0.3,1.6c0,0.6-0.1,1.1-0.3,1.6c-0.2,0.5-0.5,0.9-0.8,1.3   c-0.3,0.4-0.8,0.6-1.2,0.8C65.6,57.4,65,57.5,64.5,57.5 M64.5,56.9c0.5,0,0.9-0.1,1.3-0.3c0.4-0.2,0.8-0.4,1-0.7   c0.3-0.3,0.5-0.7,0.7-1.1c0.2-0.4,0.2-0.9,0.2-1.4c0-0.5-0.1-1-0.2-1.4c-0.2-0.4-0.4-0.8-0.7-1.1c-0.3-0.3-0.6-0.6-1-0.7   C65.4,50.1,65,50,64.5,50c-0.5,0-0.9,0.1-1.3,0.3c-0.4,0.2-0.8,0.4-1,0.7c-0.3,0.3-0.5,0.7-0.7,1.1c-0.2,0.4-0.2,0.9-0.2,1.4   c0,0.5,0.1,1,0.2,1.4c0.2,0.4,0.4,0.8,0.7,1.1c0.3,0.3,0.6,0.6,1,0.7C63.6,56.8,64,56.9,64.5,56.9"></path>
-                          <path class="st6"
-                                d="M74.8,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.3-0.8c-0.4-0.4-0.7-0.8-0.9-1.3c-0.2-0.5-0.3-1-0.3-1.6   c0-0.6,0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.3-0.8c0.5-0.2,1-0.3,1.6-0.3c0.4,0,0.8,0.1,1.2,0.2   c0.4,0.1,0.8,0.3,1.1,0.5c0.3,0.2,0.6,0.4,0.8,0.7l-0.4,0.4c-0.2-0.2-0.4-0.4-0.7-0.6c-0.3-0.2-0.6-0.3-0.9-0.4   C75.3,50,75,50,74.7,50c-0.5,0-0.9,0.1-1.4,0.3c-0.4,0.2-0.8,0.4-1.1,0.7c-0.3,0.3-0.6,0.7-0.7,1.1c-0.2,0.4-0.3,0.9-0.3,1.4   c0,0.5,0.1,1,0.3,1.4c0.2,0.4,0.4,0.8,0.8,1.1c0.3,0.3,0.7,0.6,1.1,0.7c0.4,0.2,0.9,0.3,1.4,0.3c0.4,0,0.8-0.1,1.2-0.2   c0.4-0.1,0.7-0.3,0.9-0.5c0.3-0.2,0.5-0.5,0.6-0.8c0.1-0.3,0.2-0.6,0.2-1v-0.5l0.2,0.3h-3.1v-0.6h3.5c0,0,0,0.1,0,0.2   c0,0.1,0,0.2,0,0.3c0,0.1,0,0.2,0,0.2c0,0.5-0.1,0.9-0.3,1.3c-0.2,0.4-0.4,0.7-0.7,1c-0.3,0.3-0.7,0.5-1.1,0.7   C75.7,57.4,75.3,57.5,74.8,57.5"></path>
-                          <polygon class="st6"
-                                   points="83,57.4 83,53.4 83,54 79.8,49.5 80.5,49.5 83.3,53.4 83.1,53.4 85.8,49.5 86.4,49.5 83.3,54.1    83.5,53.3 83.5,57.4  "></polygon>
-                      </g>
-                    </svg>
-                    </a>
-                </div>
-                <div class="menu-outer">
-
-                </div>
-
-                <div class="social-links">
-                    <ul class="clearfix">
+                        <li class="menu-title" data-key="t-apps">Managements</li>
                         <li>
-                            <a href="#"><span class="fab fa-twitter"></span></a>
+                            <a href="/members">
+                                <i data-feather="user"></i>
+                                <span data-key="t-chat">Member Accounts</span>
+                            </a>
                         </li>
                         <li>
-                            <a href="#"><span class="fab fa-facebook-square"></span></a>
+                            <a href="/project">
+                                <i class="fas fa-address-card"></i>
+                                <span data-key="t-chat">Projects</span>
+                            </a>
                         </li>
                         <li>
-                            <a href="#"><span class="fab fa-pinterest-p"></span></a>
+                            <a href="/contacts">
+                                <i class="fab fa-facebook-messenger"></i>
+                                <span data-key="t-chat">Contacts</span>
+                            </a>
+                        </li>
+                         <li>
+                            <a href="/news">
+                                <i class="fas fa-newspaper"></i>
+                                <span data-key="t-chat">News</span>
+                            </a>
+                        </li>
+                         <li>
+                            <a href="/career">
+                                <i class="fas fa-search"></i>
+                                <span data-key="t-chat">Carrers</span>
+                            </a>
                         </li>
                         <li>
-                            <a href="#"><span class="fab fa-instagram"></span></a>
+                            <a href="/page">
+                                <i class="fab fa-wpforms"></i>
+                                <span data-key="t-chat">Static pages</span>
+                            </a>
                         </li>
-                        <li>
-                            <a href="#"><span class="fab fa-youtube"></span></a>
-                        </li>
+                        
                     </ul>
                 </div>
-            </nav>
-        </div>
-
-
-        <div class="nav-overlay">
-            <div class="cursor"></div>
-            <div class="cursor-follower"></div>
-        </div>
-    </header>
-
-
-
-
-
-    {{#if hasntTitle}}{{else}}
-
-        <section
-                class="page-title"
-                style="background-image: url(assets/images/background/title.02.jpg);"
-        >
-            <div class="auto-container">
-                <div class="content-box">
-                    <div class="content-wrapper">
-                        <div class="title">
-                            <h1 style="font-size:40px">{{title}}</h1>
-                        </div>
-                        <ul class="bread-crumb clearfix">
-                            <li><a href="/">Trang chủ</a></li>
-                            {{#each br_items}}
-                                <li><a href="/{{slug}}">{{title}}</a></li>
-                            {{/each}}
-                            <li>{{title}}</li>
-                        </ul>
-                    </div>
-                </div>
+                <!-- Sidebar -->
             </div>
-        </section>
-
-    {{/if}}
-
-    {{{body}}}
-
-
-    <footer class="main-footer style-four">
-        <div class="auto-container">
-
-            <div class="widgets-section">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="footer-widget about-widget-two">
-                            <div class="footer-logo">
-                                <a href="/"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                         width="120px" fill="#fff" version="1.1" id="Layer_1" x="0px" y="0px"
-                                         viewBox="0 0 120 58" style="enable-background:new 0 0 120 58;"
-                                         xml:space="preserve">
-
-                      <g>
-                        <path class="st6"
-                              d="M97,30l-5.1,4.9v22.5c0,0,3.6,0.1,5.7-3.1c0.7-1.1,1.1-2.5,1.1-3.8V31.4L97,30z"></path>
-                          <path class="st6"
-                                d="M57.7,21.5l-0.6,0.6L53,26.3c-2.6-2.3-4.9-5.4-8.7-5.3c-3.5,0.1-6.6,2.7-13.5,10.2c-0.6,0.7-1.3,1.4-2,2.2   c-8.3,9.1-12.8,8.9-15,8.9c-2.2,0-4.8-1-4.8-1v-7.3c0.8,0.4,2.2,1.4,3.9,1.5c0.6,0.1,1.4,0.1,2.1,0c0.3-0.1,0.8-0.1,1.3-0.3   c0.6-0.2,1-0.4,1-0.5c0.3-0.2,0.7-0.4,1.2-0.8c7.2-6.2,11-11.7,17.1-16.5c0.8-0.6,2.3-1.9,4.7-2.6c1.3-0.4,2.8-0.7,4.3-0.7   c3.4,0,6.4,1.3,8.9,3.3C54.2,18,57.7,21.5,57.7,21.5"></path>
-                          <path class="st6"
-                                d="M88.4,21.5l-0.6,0.6l-4.1,4.2c-2.6-2.3-4.9-5.4-8.7-5.3c-3.5,0.1-6.6,2.7-13.5,10.2c-0.5,0.6-1.1,1.2-1.7,1.9   l-4.7-4.7c3.9-4,7.1-7.7,11.2-11c0.8-0.6,2.3-1.9,4.7-2.7c1.3-0.4,2.8-0.7,4.3-0.7c3.4,0,6.4,1.3,8.9,3.3   C84.9,18,88.4,21.5,88.4,21.5"></path>
-                          <path class="st6"
-                                d="M16.7,8.2v6c-0.9,0-10.4,0-10.4,0V40c-0.1,0-0.1,0-0.2,0c-0.1,0-0.2-0.1-0.2-0.1c-0.7-0.5-1.4-1.1-2.1-1.8   c0,0-1.9-1.8-3.3-5.6c-0.1-0.2-0.3-0.9-0.4-1.4C0,30.6,0,30.1,0,29.6V0.1c2.8-0.2,4.6,1.8,5.5,3.3c0.5,0.9,0.8,1.9,0.8,3v1.9H16.7z   "></path>
-                          <path class="st6"
-                                d="M120,28.2c0,5.7-3.4,10.6-8.2,12.8c0,0,0,0-0.1,0c-1.4,0.6-2.8,0.9-3.9,1.1c-0.6,0.1-1.1,0.1-1.7,0.1   c-1.9,0-3.4-0.4-5.1-1.1v-7.4c1.6,1.2,3.4,1.9,5.3,1.9c4-0.1,6.8-3.1,7.2-6.9c0.3-4.2-2.7-7.4-6.6-7.9c-0.3,0-0.7-0.1-1,0   c-2.2,0.1-3.9,1.1-5.5,2.7c-0.3,0.3-5.3,5.2-8,8c-0.9,0.9-1.5,1.6-1.7,1.7l-4.5-4.7c2.5-2.5,5.2-5.4,8.5-8.5c0.9-0.9,1.9-1.7,3-2.6   c1.7-1.4,3.2-2.2,4.4-2.7c1.2-0.3,2.4-0.5,3.6-0.6c0.1,0,0.3,0,0.4,0h0.2c2.6,0,5,0.8,7.1,2c0.1,0,0.1,0.1,0.2,0.1   c2.5,1.6,4.4,4,5.6,6.6c0,0,0,0.1,0.1,0.1C119.7,24.6,120,26.3,120,28.2"></path>
-                          <polygon class="st6"
-                                   points="2.6,57.4 2.6,50 0.3,50 0.3,49.5 5.6,49.5 5.6,50 3.2,50 3.2,57.4  "></polygon>
-                          <path class="st6" d="M8.2,57.4v-7.9h4.6V50h-4v6.8h4v0.6H8.2z M8.5,53h3.7v0.6H8.5V53z"></path>
-                          <path class="st6"
-                                d="M19.3,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.3-0.8c-0.4-0.4-0.6-0.8-0.8-1.3c-0.2-0.5-0.3-1-0.3-1.6   s0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.2-0.8c0.5-0.2,1-0.3,1.6-0.3c0.4,0,0.7,0.1,1.1,0.2   c0.4,0.1,0.7,0.3,1,0.5c0.3,0.2,0.6,0.4,0.8,0.7l-0.4,0.4c-0.2-0.2-0.4-0.5-0.6-0.6c-0.3-0.2-0.6-0.3-0.9-0.4   C19.8,50,19.5,50,19.2,50c-0.5,0-0.9,0.1-1.3,0.3c-0.4,0.2-0.8,0.4-1,0.7c-0.3,0.3-0.5,0.7-0.7,1.1c-0.2,0.4-0.2,0.9-0.2,1.4   c0,0.5,0.1,1,0.2,1.4c0.2,0.4,0.4,0.8,0.7,1.1c0.3,0.3,0.7,0.6,1.1,0.7c0.4,0.2,0.9,0.3,1.4,0.3c0.3,0,0.6,0,0.9-0.1   c0.3-0.1,0.6-0.2,0.8-0.4c0.2-0.2,0.4-0.3,0.6-0.5l0.3,0.5c-0.2,0.2-0.4,0.4-0.7,0.6c-0.3,0.2-0.6,0.3-0.9,0.4   C19.9,57.4,19.6,57.5,19.3,57.5"></path>
-                          <path class="st6"
-                                d="M24.7,49.5h0.6v7.9h-0.6V49.5z M25,53.1h5.3v0.6H25V53.1z M30.1,49.5h0.6v7.9h-0.6V49.5z"></path>
-                          <path class="st6"
-                                d="M34.3,57.4v-7.9h0.5l5.5,7.2L40.2,57c0-0.1,0-0.2,0-0.5c0-0.3,0-0.6,0-0.9c0-0.4,0-0.7,0-1.1   c0-0.4,0-0.7,0-1.1c0-0.3,0-0.6,0-0.7v-3.2h0.6v7.9h-0.5l-5.5-7.3l0.2-0.3c0,0.2,0,0.4,0,0.6c0,0.3,0,0.6,0,0.9c0,0.3,0,0.6,0,0.9   s0,0.6,0,0.8c0,0.2,0,0.4,0,0.4v3.9H34.3z"></path>
-                          <path class="st6"
-                                d="M47.5,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.2-0.8c-0.4-0.4-0.6-0.8-0.8-1.3c-0.2-0.5-0.3-1-0.3-1.6   c0-0.6,0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.2-0.8c0.5-0.2,1-0.3,1.6-0.3c0.6,0,1.1,0.1,1.6,0.3   c0.5,0.2,0.9,0.5,1.2,0.8c0.3,0.4,0.6,0.8,0.8,1.3c0.2,0.5,0.3,1,0.3,1.6c0,0.6-0.1,1.1-0.3,1.6c-0.2,0.5-0.5,0.9-0.8,1.3   c-0.3,0.4-0.8,0.6-1.2,0.8C48.6,57.4,48,57.5,47.5,57.5 M47.5,56.9c0.5,0,0.9-0.1,1.3-0.3c0.4-0.2,0.8-0.4,1-0.7   c0.3-0.3,0.5-0.7,0.7-1.1c0.2-0.4,0.2-0.9,0.2-1.4c0-0.5-0.1-1-0.2-1.4c-0.2-0.4-0.4-0.8-0.7-1.1c-0.3-0.3-0.6-0.6-1-0.7   c-0.4-0.2-0.8-0.3-1.3-0.3c-0.5,0-0.9,0.1-1.3,0.3c-0.4,0.2-0.8,0.4-1,0.7c-0.3,0.3-0.5,0.7-0.7,1.1c-0.2,0.4-0.2,0.9-0.2,1.4   c0,0.5,0.1,1,0.2,1.4s0.4,0.8,0.7,1.1c0.3,0.3,0.6,0.6,1,0.7C46.6,56.8,47,56.9,47.5,56.9"></path>
-                          <polygon class="st6"
-                                   points="54.3,57.4 54.3,49.5 54.8,49.5 54.8,56.8 58.7,56.8 58.7,57.4  "></polygon>
-                          <path class="st6"
-                                d="M64.5,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.2-0.8c-0.4-0.4-0.6-0.8-0.8-1.3c-0.2-0.5-0.3-1-0.3-1.6   c0-0.6,0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.2-0.8c0.5-0.2,1-0.3,1.6-0.3c0.6,0,1.1,0.1,1.6,0.3   c0.5,0.2,0.9,0.5,1.2,0.8c0.3,0.4,0.6,0.8,0.8,1.3c0.2,0.5,0.3,1,0.3,1.6c0,0.6-0.1,1.1-0.3,1.6c-0.2,0.5-0.5,0.9-0.8,1.3   c-0.3,0.4-0.8,0.6-1.2,0.8C65.6,57.4,65,57.5,64.5,57.5 M64.5,56.9c0.5,0,0.9-0.1,1.3-0.3c0.4-0.2,0.8-0.4,1-0.7   c0.3-0.3,0.5-0.7,0.7-1.1c0.2-0.4,0.2-0.9,0.2-1.4c0-0.5-0.1-1-0.2-1.4c-0.2-0.4-0.4-0.8-0.7-1.1c-0.3-0.3-0.6-0.6-1-0.7   C65.4,50.1,65,50,64.5,50c-0.5,0-0.9,0.1-1.3,0.3c-0.4,0.2-0.8,0.4-1,0.7c-0.3,0.3-0.5,0.7-0.7,1.1c-0.2,0.4-0.2,0.9-0.2,1.4   c0,0.5,0.1,1,0.2,1.4c0.2,0.4,0.4,0.8,0.7,1.1c0.3,0.3,0.6,0.6,1,0.7C63.6,56.8,64,56.9,64.5,56.9"></path>
-                          <path class="st6"
-                                d="M74.8,57.5c-0.6,0-1.1-0.1-1.6-0.3c-0.5-0.2-0.9-0.5-1.3-0.8c-0.4-0.4-0.7-0.8-0.9-1.3c-0.2-0.5-0.3-1-0.3-1.6   c0-0.6,0.1-1.1,0.3-1.6c0.2-0.5,0.5-0.9,0.8-1.3c0.4-0.4,0.8-0.6,1.3-0.8c0.5-0.2,1-0.3,1.6-0.3c0.4,0,0.8,0.1,1.2,0.2   c0.4,0.1,0.8,0.3,1.1,0.5c0.3,0.2,0.6,0.4,0.8,0.7l-0.4,0.4c-0.2-0.2-0.4-0.4-0.7-0.6c-0.3-0.2-0.6-0.3-0.9-0.4   C75.3,50,75,50,74.7,50c-0.5,0-0.9,0.1-1.4,0.3c-0.4,0.2-0.8,0.4-1.1,0.7c-0.3,0.3-0.6,0.7-0.7,1.1c-0.2,0.4-0.3,0.9-0.3,1.4   c0,0.5,0.1,1,0.3,1.4c0.2,0.4,0.4,0.8,0.8,1.1c0.3,0.3,0.7,0.6,1.1,0.7c0.4,0.2,0.9,0.3,1.4,0.3c0.4,0,0.8-0.1,1.2-0.2   c0.4-0.1,0.7-0.3,0.9-0.5c0.3-0.2,0.5-0.5,0.6-0.8c0.1-0.3,0.2-0.6,0.2-1v-0.5l0.2,0.3h-3.1v-0.6h3.5c0,0,0,0.1,0,0.2   c0,0.1,0,0.2,0,0.3c0,0.1,0,0.2,0,0.2c0,0.5-0.1,0.9-0.3,1.3c-0.2,0.4-0.4,0.7-0.7,1c-0.3,0.3-0.7,0.5-1.1,0.7   C75.7,57.4,75.3,57.5,74.8,57.5"></path>
-                          <polygon class="st6"
-                                   points="83,57.4 83,53.4 83,54 79.8,49.5 80.5,49.5 83.3,53.4 83.1,53.4 85.8,49.5 86.4,49.5 83.3,54.1    83.5,53.3 83.5,57.4  "></polygon>
-                      </g>
-                    </svg>
-                                </a>
-                            </div>
-                            <div class="widget-content">
-                                <div class="text">
-                                    <p>
-                                        Trụ sở chính:
-                                        <a style="color:#fff" href="{{addressHref}}"><strong>
-                                            107 Nguyễn Phong Sắc, Cầu Giấy, Hà Nội</strong></a>
-
-                                    </p>
-
-                                    <p>Hotline:
-                                        <a
-                                                style="color:#fff"
-                                                href="tel:{{info.hotlineHref}}"
-                                        ><strong>{{info.hotline}}</strong></a></p>
-
-                                    <p>Địa chỉ email:
-                                        <a
-                                                style="color:#fff"
-                                                href="mailto:{{info.emailHref}}"
-                                        ><strong>{{info.email}}</strong></a></p>
-
-                                    <p>Website:
-                                        <a style="color:#fff" href="/">
-                                            <strong>{{info.website}}</strong></a></p>
-                                </div>
-                                <ul class="social-links clearfix">
-                                    <li>
-                                        <a href="#"><span class="fab fa-facebook-f"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="fab fa-twitter"></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span
-                                                class="fab fa-google-plus-g"
-                                        ></span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><span class="fab fa-skype"></span></a>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 offset-lg-1">
-                        <div class="row">
-                            <div class="footer-widget links-widget-two col-12">
-                                <h3 class="widget-title">Hỗ trợ</h3>
-                                <div class="widget-content">
-                                    <div class="row">
-                                        <ul>
-                                            <li><a href="/about">Về chúng tôi</a></li>
-                                            <li><a href="/service">Dịch vụ</a></li>
-                                            <li><a href="#">Tin tức </a></li>
-                                            <li><a href="#">Tuyển dụng</a></li>
-                                            <li><a href="/contact">Liên hệ</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="footer-widget post-widget">
-                            <h3 class="widget-title">Tin tức</h3>
-                            <div class="widget-content">
-                                {{#each news}}
-                                    <div class="post">
-                                        <div class="image">
-                                            <a href="#"><img
-                                                    src="{{featuredImage}}"
-                                                    alt=""
-                                            /></a>
-                                        </div>
-                                        <div class="date">{{createdAt}}</div>
-                                        <h4>
-                                            <a href="#">{{title}}
-                                            </a>
-                                        </h4>
-                                    </div>
-                                {{/each}}
-
-                                <a href="/news" class="read-more-post">Đọc thêm
-                                    <i class="flaticon-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+        </div>
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+                    {{{ body }}}
                 </div>
             </div>
         </div>
+        <!-- end main content-->
 
-    </footer>
-</div>
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/popper.min.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/bootstrap-select.min.js"></script>
-<script src="/assets/js/jquery.fancybox.js"></script>
-<script src="/assets/js/isotope.js"></script>
-<script src="/assets/js/owl.js"></script>
-<script src="/assets/js/appear.js"></script>
-<script src="/assets/js/wow.js"></script>
-<script src="/assets/js/lazyload.js"></script>
-<script src="/assets/js/scrollbar.js"></script>
-<script src="/assets/js/TweenMax.min.js"></script>
-<script src="/assets/js/swiper.min.js"></script>
-<script src="/assets/js/jquery.lettering.min.js"></script>
-<script src="/assets/js/jquery.circleType.js"></script>
-<script src="/assets/js/script.js"></script>
+    </div>
+    <!-- END layout-wrapper -->
+
+
+    
+    <!-- JAVASCRIPT -->
+    <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/assets/libs/node-waves/waves.min.js"></script>
+    <script src="/assets/libs/feather-icons/feather.min.js"></script>
+    <!-- pace js -->
+
+
+    
+
 </body>
+
 </html>

@@ -4,16 +4,16 @@ import {Tag} from '../models/tag.model.js'
 import { tagTypeEnum } from "../enums/tagType.enum.js"
 
 import {Response} from '../utils/response.js'
-
+import httpMsgs from "http-msgs";
 
 
 const CareersService = {
   index: async (req, res, next) => {
-    const careers = await Career.find({ status: careerStatusEnum.PUBLISHED })
+    const careers = await Career.find().populate("tags")
     console.log(careers)
-    return res.render('careers', {
+    return res.render('career', {
       careers: careers,
-      title: 'Tuyển dụng - cơ hội việc làm tại TMP Corp Technology',
+      title: 'Carrer list ',
     })
   },
 
@@ -21,8 +21,16 @@ const CareersService = {
     try {
       const {slug} = req.params
       const career = await Career.findOne({slug: slug}).populate('tags')
-      return res.render('career-details', {
+      const t = career.tags.map(tag =>{
+        return tag._id
+      })
+      console.log("t",t)
+      console.log(career)
+      const tags = await Tag.find({type: tagTypeEnum.ARTICLE,_id:{$nin:t}});
+      console.log(career)
+      return res.render('career-detail', {
         career: career,
+        tags,
         title: career.title
       })
     } catch(err) {
@@ -35,7 +43,7 @@ const CareersService = {
     try {
       const tags = await Tag.find({type: tagTypeEnum.ARTICLE});
 
-      return res.render('/create-career', {
+      return res.render('create-career', {
         tags,
         title: "Create career"
       })
@@ -51,7 +59,8 @@ const CareersService = {
         title,
         position,
         featuredImage,
-        timeTable,
+        timeTitle,
+        timeWork,
         expirationWork,
         salary,
         location,
@@ -59,6 +68,9 @@ const CareersService = {
         content,
         tags,
       } = req.body
+      const fTags = tags.split(',')
+
+      console.log(fTags)
 
       const career = await Career.create({
         title,
@@ -68,12 +80,59 @@ const CareersService = {
         salary,
         location,
         status,
-        timeTable,
+        timeTable:{
+          timeTitle,
+          timeWork
+        },
         content,
-        tags
+        tags:fTags
       })
-      // return res.json("Create Career Successful")
-      return res.redirect('/')
+      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":career})
+    } catch (e) {
+      console.log(e)
+    }
+  },
+
+  update: async (req, res, next) => {
+    try {
+      const {slug} = req.params
+      const {
+        title,
+        position,
+        featuredImage,
+        timeTitle,
+        timeWork,
+        expirationWork,
+        salary,
+        location,
+        status,
+        content,
+        tags,
+      } = req.body
+      let updateQ ={
+          title,
+          position,
+          featuredImage,
+          expirationWork,
+          salary,
+          location,
+          status,
+          timeTable:{
+            timeTitle,
+            timeWork
+          },
+          content,
+         }
+         if(tags){
+          const fTags = tags.split(',')
+          updateQ = {
+            ...updateQ,
+            tags: fTags
+          }
+        }
+      const career = await Career.findOneAndUpdate({slug:slug},{
+       $set:updateQ},{ new: true})
+      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":career})
     } catch (e) {
       console.log(e)
     }

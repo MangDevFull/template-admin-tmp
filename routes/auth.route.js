@@ -3,6 +3,11 @@ import initPassportLocal from "../services/auth.service.js";
 
 const router = express.Router()
 
+router.use((req, res, next) => {
+  res.locals.layout = './layouts/login.hbs'
+  next();
+})
+
 /* Auth Logic */ 
 const passport = initPassportLocal
 
