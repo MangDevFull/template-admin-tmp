@@ -8,9 +8,7 @@ import httpMsgs from "http-msgs";
 const ProjectService = {
   showList: async (req, res, next) => {
     try {
-      const projects = await Project.find({
-        status: projectStatusEnum.PUBLISHED,
-      }).populate('category').sort({ createdAt: -1 });
+      const projects = await Project.find().populate('category').sort({ createdAt: -1 });
 
       console.log(projects)
       return res.render('list-project', {

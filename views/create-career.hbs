@@ -14,21 +14,21 @@
   </div>
 </div>
 <div class="modal fade" id="ignismyModal" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            </div>
-            <div class="modal-body">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
 
-                <div class="thank-you-pop">
-                    <img src="/assets/logos/Green-Round-Tick.png" alt="logon" />
-                    <h1 class="text-center">Success!</h1>
-                </div>
-
-            </div>
-
+        <div class="thank-you-pop">
+          <img src="/assets/logos/Green-Round-Tick.png" alt="logon" />
+          <h1 class="text-center">Success!</h1>
         </div>
+
+      </div>
+
     </div>
+  </div>
 </div>
 <!-- end page title -->
 
@@ -66,45 +66,51 @@
             <label for="example-text-input" class="form-label">Time Title</label>
             <input class="form-control" type="text" id="timeAble">
           </div>
-        </div>
-        <div class="mb-3">
-          <label for="example-text-input" class="form-label">Time Work</label>
-          <input class="form-control" type="text" id="timeWork">
-        </div>
-        <div class="mb-3">
+          <div class="mb-3">
+            <label for="example-text-input" class="form-label">Time Work</label>
+            <input class="form-control" type="text" id="timeWork">
+          </div>
+          <div class="mb-3">
 
-          <label class="form-label">Select Tags</label>
-          <select class="form-control" name="choices-multiple-remove-button" data-trigger
-            id="choices-multiple-remove-button" placeholder="This is a placeholder" multiple>
-            {{#each tags}}
-            <option value="{{this._id}}">{{this.name}}</option>
-            {{/each}}
-          </select>
+            <label class="form-label">Select Tags</label>
+            <select class="form-control" name="choices-multiple-remove-button" data-trigger
+              id="choices-multiple-remove-button" placeholder="This is a placeholder" multiple>
+              {{#each tags}}
+              <option value="{{this._id}}">{{this.name}}</option>
+              {{/each}}
+            </select>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-12">
+            <label for="example-text-input" class="form-label">Thumbnail</label>
+            <div>
+              <form class="dropzone" id="myForm">
+                <div class="fallback">
+                  <input name="file" id="thum" type="file">
+                </div>
+                <div class="dz-message needsclick">
+                  <div class="d-flex justify-content-center">
+                    <label for="thum" role="button">
+                      <div class="mb-3 d-flex justify-content-center">
+                        <i class="display-4 text-muted bx bx-cloud-upload"></i>
+                      </div>
+                      <h5 class="text-center">Drop files here or click to upload.</h5>
+                    </label>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div> <!-- end col -->
+        </div> <!-- end row -->
+
       </div>
+
+
     </div>
-
-    <div class="row">
-      <div class="col-12">
-        <label for="example-text-input" class="form-label">Thumbnail</label>
-        <div role="button">
-          <form action="#" class="dropzone">
-            <div class="fallback">
-              <input name="file" type="file" multiple="multiple">
-            </div>
-            <div class="dz-message needsclick">
-              <div class="mb-3 d-flex justify-content-center">
-                <i class="display-4 text-muted bx bx-cloud-upload"></i>
-              </div>
-
-              <h5 class="text-center">Drop files here or click to upload.</h5>
-            </div>
-          </form>
-        </div>
-      </div> <!-- end col -->
-    </div> <!-- end row -->
   </div>
 </div>
+
 <div class="card">
   <div class="card-header">
     <h4 class="card-title">Content</h4>
@@ -113,9 +119,10 @@
     <div id="ckeditor-classic"></div>
   </div>
 </div>
- <div class="d-flex justify-content-end">
-    <button class="btn btn-primary" id="create">Create</button>
-    </div>
+<div class="d-flex justify-content-end">
+   <button class="btn btn-warning" style="margin-right: 5px;" id="create1">Save and hidden</button>
+     <button class="btn btn-primary" id="create2">Save and visible</button>
+</div>
 </div>
 <!-- end col -->
 </div>

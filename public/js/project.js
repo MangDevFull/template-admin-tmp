@@ -33,63 +33,53 @@ $(document).ready(function () {
       }
     })
   })
-  function getQueryParams(url){
-    var qparams = {},
-        parts = (url||'').split('?'),
-        qparts, qpart,
-        i=0;
-
-    if(parts.length <= 1 ){
-        return qparams;
-    }else{
-        qparts = parts[1].split('&');
-        for(i in qparts){
-
-            qpart = qparts[i].split('=');
-            qparams[decodeURIComponent(qpart[0])] = 
-                           decodeURIComponent(qpart[1] || '');
-        }
-    }
-
-    return qparams;
-};
-  $("#create").click(function () {
+  $("#create1").click(function () {
     const editorData = editor.getData();
     const data = {}
     data.category = $('#cate').find(":selected").val();
     data.title = $('#title').val();
     data.content = editorData
-    const query  = getQueryParams(uploadUrl);
- console.log(uploadUrl)
- console.log(fileUpload)
-    console.log("query",query)
-     $.ajax({
-      url: uploadUrl,
-      method: 'PUT',
-      contentType: 'multipart/form-data',
-      headers: {...query},
-      data: fileUpload,
-      cache : false,
-    processData: false
-   
-    }).done(function(response) {
-      console.log(response);
-  });
-    // $.ajax({
-    //   url: '/project',
-    //   method: 'POST',
-    //   data: data,
-    //   success: function (da) {
-    //     if (da.boolean) {
-    //       $("#ignismyModal").modal('show');
-    //       setTimeout(function () {
-    //         window.location.replace('/project')
-    //       }, 1500)
-    //     }
-    //   },
-    //   error: function (jqXHR, textStatus, errorThrown) {
-    //     alert("Lỗi đăng ký")
-    //   }
-    // })
+    data.status = 0
+
+    $.ajax({
+      url: '/project',
+      method: 'POST',
+      data: data,
+      success: function (da) {
+        if (da.boolean) {
+          $("#ignismyModal").modal('show');
+          setTimeout(function () {
+            window.location.replace('/project')
+          }, 1500)
+        }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        alert("Lỗi đăng ký")
+      }
+    })
+  })
+  $("#create2").click(function () {
+    const editorData = editor.getData();
+    const data = {}
+    data.category = $('#cate').find(":selected").val();
+    data.title = $('#title').val();
+    data.content = editorData
+    data.status = 1
+    $.ajax({
+      url: '/project',
+      method: 'POST',
+      data: data,
+      success: function (da) {
+        if (da.boolean) {
+          $("#ignismyModal").modal('show');
+          setTimeout(function () {
+            window.location.replace('/project')
+          }, 1500)
+        }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        alert("Lỗi đăng ký")
+      }
+    })
   })
 })

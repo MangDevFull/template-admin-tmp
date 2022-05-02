@@ -1,33 +1,30 @@
 
 $(document).ready(function () {
-  const d = $("#con").text();
-  console.log( d)
   ClassicEditor
   .create( document.querySelector( '#ckeditor-classic' ) )
   .then( newEditor => {
     editor = newEditor
-    editor.setData( d );
   } )
   .catch( error => {
       console.error( error );
   } );
-  $("#update").click(function () {
-    const slug = $("#slug").text()
+  $("#create1").click(function () {
     const editorData = editor.getData();
     const data = {}
-    data.category = $('#cate').find(":selected").val();
+    data.name = $('#name').val();
     data.title = $('#title').val();
     data.content = editorData
-
+    data.status = 0
     $.ajax({
-      url: `/project/${slug}`,
+      url: '/page',
       method: 'POST',
       data: data,
       success: function (da) {
-        if (da.boolean) {
+        console.log(da);
+        if (da.status==200) {
           $("#ignismyModal").modal('show');
           setTimeout(function () {
-            location.reload()
+            window.location.replace('/page')
           }, 1500)
         }
       },
@@ -36,21 +33,23 @@ $(document).ready(function () {
       }
     })
   })
-  $("#status").click(function () {
-    const slug = $("#slug").text()
-    const status = $('input[name=formRadios]:checked').val()
+  $("#create2").click(function () {
+    const editorData = editor.getData();
     const data = {}
-    data.status = status
+    data.name = $('#name').val();
+    data.title = $('#title').val();
+    data.content = editorData
+    data.status = 1
     $.ajax({
-      url: `/project/${slug}`,
+      url: '/page',
       method: 'POST',
       data: data,
       success: function (da) {
-        if (da.boolean) {
-          $("#myModal").modal('hide');
+        console.log(da);
+        if (da.status==200) {
           $("#ignismyModal").modal('show');
           setTimeout(function () {
-            window.location.replace('/project')
+            window.location.replace('/page')
           }, 1500)
         }
       },

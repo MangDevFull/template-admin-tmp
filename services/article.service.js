@@ -9,7 +9,7 @@ const ArticleService = {
   showList: async (req, res, next) => {
     try {
       const articles = await Article.find({
-        status: articleStatusEnum.PUBLISHED,
+     
     }).populate('category').sort({ createdAt: -1 });
       return res.render('news', { articles: articles, title: 'News' });
     } catch (err) {
@@ -50,7 +50,7 @@ const ArticleService = {
 
   createArticle: async (req, res, next) => {
     try {
-      const { title, subTitle, thumbnail, content, source,category } = req.body;
+      const { title, subTitle, thumbnail, content, source,category,status } = req.body;
 
       const article = await Article.create({
         title,
@@ -59,6 +59,7 @@ const ArticleService = {
         content : content || "",
         thumbnail,
         source,
+        status
       });
 
       // return res.json(Response.success()) or return res.render()...
@@ -76,10 +77,14 @@ const ArticleService = {
       const article = await Article.findOne({ slug: slug});
       if (!article) return res.json(Response.notFound());
 
-      const { title, subTitle, thumbnail, source,category,content } = req.body;
+      const { title, subTitle, thumbnail, source,category,content,status } = req.body;
       let isChange = false;
       if (title && article.title !== title) {
         article.title = title;
+        isChange = true;
+      }
+      if (status && article.status !== status) {
+        article.status = status;
         isChange = true;
       }
       if (subTitle && article.subTitle !== subTitle) {

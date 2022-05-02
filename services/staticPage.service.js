@@ -7,7 +7,7 @@ const MemberService = {
     try {
       const pages = await StaticPage.find({}).sort({ createdAt: -1 });
 
-      return res.render('contact', {
+      return res.render('list-page', {
         pages: pages,
         title: 'List static pages',
       });
@@ -22,7 +22,7 @@ const MemberService = {
       const {slug} = req.params
       const staticPage = await StaticPage.findOne({slug: slug})
     
-      return res.render('staticpage-detail', {
+      return res.render('page-detail', {
         staticPage,
         title: staticPage.title
       })
@@ -52,10 +52,10 @@ const MemberService = {
 
   updatePage: async (req, res, next) => {
     try {
-      const { id } = req.params;
+      const { slug } = req.params;
       const { name, title, content, status } = req.body;
 
-      const page = await StaticPage.findOne({ _id: id });
+      const page = await StaticPage.findOne({ slug: slug });
 
       let isChange = false;
       if (title && page.title !== title) {

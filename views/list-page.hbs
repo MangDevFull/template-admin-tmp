@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0 font-size-18">Careers Management</h4>
+            <h4 class="mb-sm-0 font-size-18">Pages Management</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="./">Home</a></li>
-                    <li class="breadcrumb-item active">Careers</li>
+                    <li class="breadcrumb-item active">Pages</li>
                 </ol>
             </div>
 
@@ -14,6 +14,24 @@
     </div>
 </div>
 <!-- end page title -->
+
+<div class="modal fade" id="ignismyModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="modal-body">
+
+                <div class="thank-you-pop">
+                    <img src="/assets/logos/Green-Round-Tick.png" alt="logon" />
+                    <h1 class="text-center">Success!</h1>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
 <div class="row align-items-center">
     <div class="col-md-6">
         {{!-- <div class="mb-3">
@@ -35,10 +53,10 @@
                     </li>
                 </ul> --}}
             </div>
-             <div>
+            <div>
                 <!-- Large modal button -->
                 <a type="button" class="btn btn-secondary"
-                href="/career/create"
+                href="/page/create"
                    ><i class="bx bx-plus me-1"></i>Add New</a>
                 <!--  Large modal example -->
         
@@ -66,32 +84,24 @@
         style="border-collapse: collapse; border-spacing: 0 8px; width: 100%;">
         <thead>
             <tr>
+                <th scope="col">Name</th>
                 <th scope="col">Title</th>
-                <th scope="col">Position</th>
-                 <th scope="col">Location</th>
-                <th scope="col">Tags</th>
                 <th scope="col">Status</th>
                 <th scope="col">View</th>
             </tr>
         </thead>
         <tbody>
-             {{#each careers}}
+             {{#each pages}}
             <tr>
                 <th scope="row">
-                    {{this.title}}
+                    {{this.name}}
                 </th>
                 <td>
-                    {{this.position}}
-                </td>
-                <td>{{this.location}}</td>
-                <td>
-                    {{#each this.tags}}
-                    <span class="badge rounded-pill bg-primary">{{this.name}}</span>
-                     {{/each}}
+                    {{this.title}}
                 </td>
                 <td>{{this.status}}</td>
                 <td>
-                  <a href="/career/{{this.slug}}">View</a>
+                    <a href="/page/{{this.slug}}">View</a>
                 </td>
             </tr>
              {{/each}}
@@ -113,6 +123,7 @@
 <!-- pristine js -->
 <script src="/assets/libs/pristinejs/pristine.min.js"></script>
 <!-- pace js -->
+<script src="/assets/libs/pace-js/pace.min.js"></script>
 
 <!-- Required datatable js -->
 <script src="/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>

@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { nanoid } from 'nanoid';
 import slugify from 'slugify';
 import mongoosePaginate from 'mongoose-paginate-v2';
-import { staticPageStatusEnum } from '../enums/staticPageStatus.enum';
+import { staticPageStatusEnum } from '../enums/staticPageStatus.enum.js';
 
 const { Schema } = mongoose;
 

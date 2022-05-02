@@ -9,7 +9,7 @@ import httpMsgs from "http-msgs";
 
 const CareersService = {
   index: async (req, res, next) => {
-    const careers = await Career.find({ status: careerStatusEnum.PUBLISHED }).populate("tags")
+    const careers = await Career.find().populate("tags")
     console.log(careers)
     return res.render('career', {
       careers: careers,
@@ -68,7 +68,6 @@ const CareersService = {
         content,
         tags,
       } = req.body
-
       const fTags = tags.split(',')
 
       console.log(fTags)
@@ -110,26 +109,29 @@ const CareersService = {
         content,
         tags,
       } = req.body
-
-      const fTags = tags.split(',')
-
+      let updateQ ={
+          title,
+          position,
+          featuredImage,
+          expirationWork,
+          salary,
+          location,
+          status,
+          timeTable:{
+            timeTitle,
+            timeWork
+          },
+          content,
+         }
+         if(tags){
+          const fTags = tags.split(',')
+          updateQ = {
+            ...updateQ,
+            tags: fTags
+          }
+        }
       const career = await Career.findOneAndUpdate({slug:slug},{
-       $set:{
-        title,
-        position,
-        featuredImage,
-        expirationWork,
-        salary,
-        location,
-        status,
-        timeTable:{
-          timeTitle,
-          timeWork
-        },
-        content,
-        tags:fTags
-       }
-      },{ new: true})
+       $set:updateQ},{ new: true})
       return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":career})
     } catch (e) {
       console.log(e)
