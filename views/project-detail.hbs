@@ -83,7 +83,6 @@
         </div> <!-- end row -->
       </div>
     </div>
-    <p>{{project.content}}</p>
     <div class="card">
       <div class="card-header">
         <h4 class="card-title">Content</h4>
@@ -98,6 +97,7 @@
   </div>
   <!-- end col -->
 </div>
+<p style="display:none" id="con">{{project.content}}</p>
 
 <!-- JAVASCRIPT -->
 <script src="/assets/libs/jquery/jquery.min.js"></script>
@@ -112,7 +112,7 @@
 <script src="/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
 
 <!-- init js -->
-<script src="/assets/js/pages/form-editor.init.js"></script>
+{{!-- <script src="/assets/js/pages/form-editor.init.js"></script> --}}
 <script src="/assets/libs/dropzone/min/dropzone.min.js"></script>
 
 <script src="/assets/js/app.js"></script>

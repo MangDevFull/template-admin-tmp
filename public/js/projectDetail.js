@@ -1,5 +1,16 @@
 
 $(document).ready(function () {
+  const d = $("#con").text();
+  console.log( d)
+  ClassicEditor
+  .create( document.querySelector( '#ckeditor-classic' ) )
+  .then( newEditor => {
+    editor = newEditor
+    editor.setData( d );
+  } )
+  .catch( error => {
+      console.error( error );
+  } );
   $("#update").click(function () {
     const slug = $("#slug").text()
     const data = {}
