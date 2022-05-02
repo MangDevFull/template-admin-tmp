@@ -1,11 +1,25 @@
 $(document).ready(function () {
+  const d = $("#con").text();
+  console.log( d)
+  ClassicEditor
+  .create( document.querySelector( '#ckeditor-classic' ) )
+  .then( newEditor => {
+    editor = newEditor
+    editor.setData( d );
+  } )
+  .catch( error => {
+      console.error( error );
+  } );
   $("#update").click(function () {
     const slug = $("#slug").text()
+    const editorData = editor.getData();
+    console.log( "aaa",editorData );
     const data = {}
     data.category = $('#cate').find(":selected").val();
     data.title = $('#title').val();
     data.subTitle = $('#subT').val();
     data.source = $('#source').val();
+    data.content = editorData
 
     console.log(data);
     $.ajax({

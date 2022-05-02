@@ -1,11 +1,10 @@
 import Url from 'url-parse';
 import queryString from 'query-string';
-function covert(url){
-  const url = value.uploadUrl
+function covert(uploadUrl){
+  const url = uploadUrl
   const uri = new Url(url)
-
   const query = queryString.parse(uri.query)
 
   return query
 }
-export {covert}
+export default covert

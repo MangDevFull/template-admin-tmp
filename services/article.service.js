@@ -56,7 +56,7 @@ const ArticleService = {
         title,
         subTitle,
         category,
-        content,
+        content : content || "",
         thumbnail,
         source,
       });
@@ -76,7 +76,7 @@ const ArticleService = {
       const article = await Article.findOne({ slug: slug});
       if (!article) return res.json(Response.notFound());
 
-      const { title, subTitle, thumbnail, source,category } = req.body;
+      const { title, subTitle, thumbnail, source,category,content } = req.body;
       let isChange = false;
       if (title && article.title !== title) {
         article.title = title;
@@ -96,6 +96,10 @@ const ArticleService = {
       }
       if (source && article.source !== source) {
         article.source = source;
+        isChange = true;
+      }
+      if (content && article.content !== source) {
+        article.content = content;
         isChange = true;
       }
       if(isChange) await article.save();
