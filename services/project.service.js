@@ -82,7 +82,11 @@ const ProjectService = {
       if (!project) return res.json(Response.notFound());
 
       const { title, content, thumbnail, category, status } = req.body;
-      console.log(req.body)
+
+      const file = req.file
+      let location = file?.location;
+      console.log("location",location)
+      
       let isChange = false;
       if (title && project.title !== title) {
         project.title = title;
@@ -92,8 +96,8 @@ const ProjectService = {
         project.content = content;
         isChange = true;
       }
-      if (thumbnail && project.thumbnail !== thumbnail) {
-        project.thumbnail = thumbnail;
+      if (location && project.thumbnail !== location) {
+        project.thumbnail = location;
         isChange = true;
       }
       if (category && project.category != category) {
@@ -105,8 +109,12 @@ const ProjectService = {
         isChange = true;
       }
       if(isChange) await project.save();
+      if (status) {
+        return httpMsgs.sendJSON(req,res,{'boolean' : true})
+      }else{
+        return res.redirect(`/project/${slug}`);
+      }
 
-      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":project})
     } catch (err) {
       console.error(err);
       return next(err);

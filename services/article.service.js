@@ -78,6 +78,9 @@ const ArticleService = {
       const article = await Article.findOne({ slug: slug});
       if (!article) return res.json(Response.notFound());
 
+      const file = req.file
+      let location = file?.location;
+
       const { title, subTitle, thumbnail, source,category,content,status } = req.body;
       let isChange = false;
       if (title && article.title !== title) {
@@ -92,8 +95,8 @@ const ArticleService = {
         article.subTitle = subTitle;
         isChange = true;
       }
-      if (thumbnail && article.thumbnail !== thumbnail) {
-        article.thumbnail = thumbnail;
+      if (location && article.thumbnail !== location) {
+        article.thumbnail = location;
         isChange = true;
       }
       if (category && article.category != category) {
@@ -110,7 +113,12 @@ const ArticleService = {
       }
       if(isChange) await article.save();
 
-      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":article})
+      if(status){
+        return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":article})
+      }else{
+        return res.redirect(`/news/${slug}`);
+      }
+
 
     } catch (err) {
       console.error(err);
