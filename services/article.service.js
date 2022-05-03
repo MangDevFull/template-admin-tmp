@@ -52,19 +52,19 @@ const ArticleService = {
   createArticle: async (req, res, next) => {
     try {
       const { title, subTitle, thumbnail, content, source,category,status } = req.body;
-
-      const article = await Article.create({
+      const file = req.file
+      let location = file?.location;
+       await Article.create({
         title,
         subTitle,
         category,
         content : content || "",
-        thumbnail,
+        thumbnail: location,
         source,
         status
       });
 
-      // return res.json(Response.success()) or return res.render()...
-      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":article})
+     return res.redirect('/news')
 
     } catch (err) {
       console.error(err);

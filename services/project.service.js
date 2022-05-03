@@ -53,21 +53,22 @@ const ProjectService = {
 
   createProject: async (req, res, next) => {
     try {
-      const { title, thumbnail, content, category, status } = req.body;
+      const { title, content, category, status } = req.body;
+      const file = req.file
+      let location = file?.location;
 
-      const cat = await Category.findOne({_id: category, type: categoryTypeEnum.PROJECT})
-      if(!cat) return  httpMsgs.sendJSON(req,res,{"boolean":false});
+        const cat = await Category.findOne({_id: category, type: categoryTypeEnum.PROJECT})
+        if(!cat) return  httpMsgs.sendJSON(req,res,{"boolean":false});
 
-      const project = await Project.create({
+        await Project.create({
         title,
         content: content || "content",
-        thumbnail,
+        thumbnail:location,
         category: category,
         status,
+
       });
-
-      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":project})
-
+        return res.redirect('/project')
     } catch (err) {
       console.error(err);
       return next(err);

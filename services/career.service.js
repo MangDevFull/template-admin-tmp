@@ -68,26 +68,26 @@ const CareersService = {
         content,
         tags,
       } = req.body
-      const fTags = tags.split(',')
+      const file = req.file
+      let thum = file?.location;
 
-      console.log(fTags)
-
-      const career = await Career.create({
+        await Career.create({
         title,
         position,
         featuredImage,
         expirationWork,
         salary,
         location,
+        featuredImage:thum,
         status,
         timeTable:{
           timeTitle,
           timeWork
         },
         content,
-        tags:fTags
+        tags:tags
       })
-      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":career})
+      return res.redirect('/career')
     } catch (e) {
       console.log(e)
     }
