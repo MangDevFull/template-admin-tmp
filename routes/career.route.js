@@ -1,5 +1,6 @@
 import express from 'express';
 import {CareersService} from "../services/career.service.js";
+import { uploadImageMiddleware } from '../services/uploadImage.service.js';
 const router = express.Router();
 router.use((req, res, next) => {
   res.locals.layout = './layouts/main.hbs'
@@ -8,13 +9,13 @@ router.use((req, res, next) => {
 
 router.route('/')
 .get(CareersService.index)
-.post(CareersService.createCareer)
+.post(uploadImageMiddleware, CareersService.createCareer)
 
 router.get("/create",CareersService.getCreateCareer)
 
 router.route("/:slug")
 .get(CareersService.getDetails)
-.post(CareersService.update)
+.post(uploadImageMiddleware, CareersService.update)
 
 
 

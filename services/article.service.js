@@ -3,6 +3,7 @@ import { categoryTypeEnum } from '../enums/categoryType.enum.js';
 import { Article } from '../models/article.model.js';
 import { Category } from '../models/category.model.js';
 import { Response } from '../utils/response.js';
+
 import httpMsgs from "http-msgs";
 
 const ArticleService = {
@@ -51,19 +52,19 @@ const ArticleService = {
   createArticle: async (req, res, next) => {
     try {
       const { title, subTitle, thumbnail, content, source,category,status } = req.body;
-
-      const article = await Article.create({
+      const file = req.file
+      let location = file?.location;
+       await Article.create({
         title,
         subTitle,
         category,
         content : content || "",
-        thumbnail,
+        thumbnail: location,
         source,
         status
       });
 
-      // return res.json(Response.success()) or return res.render()...
-      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":article})
+     return res.redirect('/news')
 
     } catch (err) {
       console.error(err);
@@ -76,6 +77,9 @@ const ArticleService = {
       const { slug } = req.params;
       const article = await Article.findOne({ slug: slug});
       if (!article) return res.json(Response.notFound());
+
+      const file = req.file
+      let location = file?.location;
 
       const { title, subTitle, thumbnail, source,category,content,status } = req.body;
       let isChange = false;
@@ -91,8 +95,8 @@ const ArticleService = {
         article.subTitle = subTitle;
         isChange = true;
       }
-      if (thumbnail && article.thumbnail !== thumbnail) {
-        article.thumbnail = thumbnail;
+      if (location && article.thumbnail !== location) {
+        article.thumbnail = location;
         isChange = true;
       }
       if (category && article.category != category) {
@@ -109,7 +113,12 @@ const ArticleService = {
       }
       if(isChange) await article.save();
 
-      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":article})
+      if(status){
+        return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":article})
+      }else{
+        return res.redirect(`/news/${slug}`);
+      }
+
 
     } catch (err) {
       console.error(err);

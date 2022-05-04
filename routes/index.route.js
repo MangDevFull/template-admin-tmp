@@ -8,18 +8,20 @@ import careerRouter from "./career.route.js"
 import uploadMedia from "../services/s3.service.js"
 import pageRouter from "./page.route.js"
 
+import {authorize} from '../middlewares/authorize.js'
+import { accountTypeEnum } from '../enums/accountType.enum.js';
+import { ArticleService } from '../services/article.service.js';
+
 const router = express.Router();
-router.get('/',(req, res) => {
-    return res.render('index')
-})
+router.get('/', authorize(accountTypeEnum.ADMIN), ArticleService.showList)
 router.use('/auth',AuthRouters)
-router.use('/members',memeberRouter)
-router.use('/project',projectRouter)
-router.get('/contacts',MemberService.showData)
-router.use('/news',newsRouter)
-router.use('/career',careerRouter)
-router.use('/s3-upload',uploadMedia.getResignedUrl)
-router.use('/page',pageRouter)
+router.use('/members', authorize(accountTypeEnum.ADMIN), memeberRouter)
+router.use('/project', authorize(accountTypeEnum.ADMIN), projectRouter)
+router.get('/contacts', authorize(accountTypeEnum.ADMIN),MemberService.showData)
+router.use('/news', authorize(accountTypeEnum.ADMIN),newsRouter)
+router.use('/career', authorize(accountTypeEnum.ADMIN),careerRouter)
+router.use('/s3-upload', authorize(accountTypeEnum.ADMIN),uploadMedia.getResignedUrl)
+router.use('/page', authorize(accountTypeEnum.ADMIN), pageRouter)
 
 
 

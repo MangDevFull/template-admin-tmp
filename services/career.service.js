@@ -1,9 +1,9 @@
 import { careerStatusEnum } from "../enums/careerStatus.enum.js"
 import { Career } from "../models/career.model.js"
-import {Tag} from '../models/tag.model.js'
+import { Tag } from '../models/tag.model.js'
 import { tagTypeEnum } from "../enums/tagType.enum.js"
 
-import {Response} from '../utils/response.js'
+import { Response } from '../utils/response.js'
 import httpMsgs from "http-msgs";
 
 
@@ -19,35 +19,35 @@ const CareersService = {
 
   getDetails: async (req, res, next) => {
     try {
-      const {slug} = req.params
-      const career = await Career.findOne({slug: slug}).populate('tags')
-      const t = career.tags.map(tag =>{
+      const { slug } = req.params
+      const career = await Career.findOne({ slug: slug }).populate('tags')
+      const t = career.tags.map(tag => {
         return tag._id
       })
-      console.log("t",t)
+      console.log("t", t)
       console.log(career)
-      const tags = await Tag.find({type: tagTypeEnum.ARTICLE,_id:{$nin:t}});
+      const tags = await Tag.find({ type: tagTypeEnum.ARTICLE, _id: { $nin: t } });
       console.log(career)
       return res.render('career-detail', {
         career: career,
         tags,
         title: career.title
       })
-    } catch(err) {
+    } catch (err) {
       console.log(err);
       return next(err);
     }
   },
 
-  getCreateCareer: async(req, res, next) => {
+  getCreateCareer: async (req, res, next) => {
     try {
-      const tags = await Tag.find({type: tagTypeEnum.ARTICLE});
+      const tags = await Tag.find({ type: tagTypeEnum.ARTICLE });
 
       return res.render('create-career', {
         tags,
         title: "Create career"
       })
-    } catch(err) {
+    } catch (err) {
       console.error(err);
       return next(err);
     }
@@ -68,26 +68,26 @@ const CareersService = {
         content,
         tags,
       } = req.body
-      const fTags = tags.split(',')
+      const file = req.file
+      let thum = file?.location;
 
-      console.log(fTags)
-
-      const career = await Career.create({
+      await Career.create({
         title,
         position,
         featuredImage,
         expirationWork,
         salary,
         location,
+        featuredImage: thum,
         status,
-        timeTable:{
+        timeTable: {
           timeTitle,
           timeWork
         },
         content,
-        tags:fTags
+        tags: tags
       })
-      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":career})
+      return res.redirect('/career')
     } catch (e) {
       console.log(e)
     }
@@ -95,7 +95,7 @@ const CareersService = {
 
   update: async (req, res, next) => {
     try {
-      const {slug} = req.params
+      const { slug } = req.params
       const {
         title,
         position,
@@ -109,7 +109,18 @@ const CareersService = {
         content,
         tags,
       } = req.body
-      let updateQ ={
+      console.log('tags',tags)
+      const file = req.file
+      let thum = file?.location;
+      let updateQ = {}
+      if (status) {
+        updateQ = {
+          ...updateQ,
+          status: status
+        }
+      } else {
+        updateQ = {
+          ...updateQ,
           title,
           position,
           featuredImage,
@@ -117,22 +128,28 @@ const CareersService = {
           salary,
           location,
           status,
-          timeTable:{
+          timeTable: {
             timeTitle,
             timeWork
           },
           content,
-         }
-         if(tags){
-          const fTags = tags.split(',')
-          updateQ = {
-            ...updateQ,
-            tags: fTags
-          }
+          tags
         }
-      const career = await Career.findOneAndUpdate({slug:slug},{
-       $set:updateQ},{ new: true})
-      return httpMsgs.sendJSON(req,res,{'boolean' : true,"ac":career})
+      }
+      if (thum) {
+        updateQ = {
+          ...updateQ,
+          featuredImage: thum
+        }
+      }
+      const career = await Career.findOneAndUpdate({ slug: slug }, {
+        $set: updateQ
+      }, { new: true })
+      if(status){
+        return httpMsgs.sendJSON(req, res, { 'boolean': true, "ac": career })
+      }else{
+        return res.redirect(`/career/${slug}`)
+      }
     } catch (e) {
       console.log(e)
     }
@@ -141,7 +158,7 @@ const CareersService = {
   deleteCareer: async (req, res, next) => {
     try {
       const { id } = req.params;
-      const checkDelete = await Career.findOne({ _id: id, status: {$ne: careerStatusEnum.DELETED} });
+      const checkDelete = await Career.findOne({ _id: id, status: { $ne: careerStatusEnum.DELETED } });
       if (!checkDelete) return res.json("Career not found");
       const career = await Career.findByIdAndUpdate(id, { $set: { status: careerStatusEnum.DELETED } }, { new: true });
       return res.json(Response.success(career));

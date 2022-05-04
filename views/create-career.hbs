@@ -31,7 +31,8 @@
   </div>
 </div>
 <!-- end page title -->
-
+   <form class="needs-validation add-product-form" novalidate="" action="/career" method="POST"
+    enctype="multipart/form-data">
 <div class="row">
   <div class="col-lg-12">
     <div class="card">
@@ -43,63 +44,62 @@
           <div class="col-md-12">
             <div class="mb-3">
               <label for="example-text-input" class="form-label">Title</label>
-              <input class="form-control" type="text" id="title">
+              <input class="form-control" type="text" name="title">
             </div>
             <div class="mb-3">
               <label for="example-text-input" class="form-label">Position</label>
-              <input class="form-control" type="text" id="position">
+              <input class="form-control" type="text" name="position">
             </div>
             <div class="mb-3">
               <label for="example-text-input" class="form-label">Expiration Work</label>
-              <input class="form-control" type="text" id="exWork">
+              <input class="form-control" type="text" id="exWork" name="expirationWork">
             </div>
           </div>
           <div class="mb-3">
             <label for="example-text-input" class="form-label">Salary</label>
-            <input class="form-control" type="text" id="salary">
+            <input class="form-control" type="text" name="salary">
           </div>
           <div class="mb-3">
             <label for="example-text-input" class="form-label">Location</label>
-            <input class="form-control" type="text" id="location">
+            <input class="form-control" type="text" name="location">
           </div>
           <div class="mb-3">
             <label for="example-text-input" class="form-label">Time Title</label>
-            <input class="form-control" type="text" id="timeAble">
+            <input class="form-control" type="text" id="timeAble" name="timeTitle">
           </div>
           <div class="mb-3">
             <label for="example-text-input" class="form-label">Time Work</label>
-            <input class="form-control" type="text" id="timeWork">
+            <input class="form-control" type="text" id="timeWork" name="timeWork">
           </div>
           <div class="mb-3">
-
             <label class="form-label">Select Tags</label>
-            <select class="form-control" name="choices-multiple-remove-button" data-trigger
-              id="choices-multiple-remove-button" placeholder="This is a placeholder" multiple>
+            <select class="form-control" data-trigger
+              id="choices-multiple-remove-button" name="tags" placeholder="This is a placeholder" multiple>
               {{#each tags}}
               <option value="{{this._id}}">{{this.name}}</option>
               {{/each}}
             </select>
           </div>
         </div>
-        <div class="row">
+           <div class="row">
           <div class="col-12">
             <label for="example-text-input" class="form-label">Thumbnail</label>
             <div>
-              <form class="dropzone" id="myForm">
-                <div class="fallback">
-                  <input name="file" id="thum" type="file">
-                </div>
+              {{!-- <form class="dropzone" id="myForm">
+                <div class="fallback"> --}}
+                  <input name="image" id="thum" type="file">
+                {{!-- </div>
                 <div class="dz-message needsclick">
                   <div class="d-flex justify-content-center">
-                    <label for="thum" role="button">
-                      <div class="mb-3 d-flex justify-content-center">
-                        <i class="display-4 text-muted bx bx-cloud-upload"></i>
-                      </div>
-                      <h5 class="text-center">Drop files here or click to upload.</h5>
-                    </label>
+                  <label for="thum" role="button" >
+                  <div class="mb-3 d-flex justify-content-center">
+                    <i class="display-4 text-muted bx bx-cloud-upload"></i>
                   </div>
-                </div>
-              </form>
+                  <h5 class="text-center">Drop files here or click to upload.</h5>
+                  </label>
+                  </div>
+                </div> --}}
+              {{!-- </form> --}}
             </div>
           </div> <!-- end col -->
         </div> <!-- end row -->
@@ -116,16 +116,17 @@
     <h4 class="card-title">Content</h4>
   </div>
   <div class="card-body">
-    <div id="ckeditor-classic"></div>
+    <div id="ckeditor-classic" name="content"></div>
   </div>
 </div>
 <div class="d-flex justify-content-end">
-   <button class="btn btn-warning" style="margin-right: 5px;" id="create1">Save and hidden</button>
-     <button class="btn btn-primary" id="create2">Save and visible</button>
+   <button class="btn btn-light" style="margin-right: 5px;" id="create1">Save and hidden</button>
+     <button class="btn btn-primary" id="create2">Save and publish</button>
 </div>
 </div>
 <!-- end col -->
 </div>
+</form>
 
 <!-- JAVASCRIPT -->
 <script src="/assets/libs/jquery/jquery.min.js"></script>

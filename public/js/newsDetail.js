@@ -1,4 +1,18 @@
 $(document).ready(function () {
+  $('#updateImage').hide();
+  $("#up").click(() => {
+    $("#cancle").css("color", "red")
+    $("#cancle").css("margin-left", "10px")
+    $("#show-image").hide();
+    $("#updateImage").show();
+  })
+  $("#cancle").click(() => {
+    $("#cancle").css("color", "red")
+    $("#cancle").css("margin-left", "10px")
+    $("#show-image").show();
+    $("#updateImage").hide();
+    $("#customFile").val('');
+  })
   const d = $("#con").text();
   console.log(d)
   ClassicEditor
@@ -10,36 +24,6 @@ $(document).ready(function () {
     .catch(error => {
       console.error(error);
     });
-  $("#update").click(function () {
-    const slug = $("#slug").text()
-    const editorData = editor.getData();
-    console.log("aaa", editorData);
-    const data = {}
-    data.category = $('#cate').find(":selected").val();
-    data.title = $('#title').val();
-    data.subTitle = $('#subT').val();
-    data.source = $('#source').val();
-    data.content = editorData
-
-    console.log(data);
-    $.ajax({
-      url: `/news/${slug}`,
-      method: 'POST',
-      data: data,
-      success: function (da) {
-        if (da.boolean) {
-          $("#ignismyModal").modal('show');
-          setTimeout(function () {
-            location.reload()
-          }, 1500)
-        }
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        alert("Lỗi đăng ký")
-      }
-    })
-
-  })
   $("#status").click(function () {
     const slug = $("#slug").text()
     const status = $('input[name=formRadios]:checked').val()
