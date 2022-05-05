@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
-import {customAlphabet} from 'nanoid'
-const nanoid = customAlphabet('1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ', 10);
+import mongoose from "mongoose";
+import { customAlphabet } from "nanoid";
+const nanoid = customAlphabet("1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ", 10);
 
 const { Schema } = mongoose;
 
@@ -14,29 +14,31 @@ const memberSchema = new Schema(
       type: String,
       required: true,
     },
-    date:{
+    date: {
       type: String,
     },
-    phone:{
+    phone: {
       type: String,
     },
     username: {
       type: String,
       required: true,
-        default: () => nanoid()
+      default: () => nanoid(),
     },
     position: {
       type: String,
       required: true,
     },
     socialLinks: {
+      linkedin: String,
+      twitter: String,
       facebook: String,
       instagram: String,
     },
     featuredImage: {
       type: String,
       required: true,
-      default: 'https://via.placeholder.com/300x300.jpg?text=tmptechnology.vn',
+      default: "https://via.placeholder.com/300x300.jpg?text=tmptechnology.vn",
     },
 
     isDeleted: {
@@ -56,5 +58,5 @@ const memberSchema = new Schema(
   }
 );
 
-const Member = mongoose.model('Member', memberSchema);
+const Member = mongoose.model("Member", memberSchema);
 export { Member };

@@ -54,9 +54,13 @@
                 </ul> --}}
             </div>
             <div>
+                <a class="btn btn-secondary"
+                href="/members/new"
+                   ><i class="bx bx-plus me-1"></i>Add New</a>
+
                 <!-- Large modal button -->
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                    data-bs-target=".bs-example-modal-lg"><i class="bx bx-plus me-1"></i>Add New</button>
+                {{!-- <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                    data-bs-target=".bs-example-modal-lg"><i class="bx bx-plus me-1"></i>Add New</button> --}}
 
                 <!--  Large modal example -->
                 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
@@ -69,13 +73,32 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <div id="pristine-valid-example" novalidate>
+                                
+                                <form id="data" novalidate="" action="/members" method="POST" enctype="multipart/form-data">
                                     <h5> Information about</h5>
                                     <div class="row">
+                                        <div class="col-12 avatar-xxl me-3 avatar-upload">
+                                            <div class="avatar-edit">
+                                                {{!-- <form action="" method="post" id="form-image"> --}}
+                                                <input type="file" id="featuredImage" name="featuredImage" accept=".png, .jpg, .jpeg" />
+                                                <label for="featuredImage"><i class="fa fa-camera"></i></label>
+                                                {{!-- </form> --}}
+                                            </div>
+
+                                            <img id="imagePreview" src="https://laka-storage-vn.hn.ss.bfcplatform.vn/assets/images/avatars/a1@200.png" alt=""
+                                                class="img-fluid rounded-circle img-thumbnail">
+
+                                        </div>
+                                    </div>
+                                   
+
+                                    <div class="row">
+                                        
+
                                         <div class="col-xl-4 col-md-6">
                                             <div class="form-group mb-3">
                                                 <label>FullName</label>
-                                                <input type="text" required id="fullName"
+                                                <input type="text" name="fullName"
                                                     data-pristine-required-message="Please Enter fullName"
                                                     class="form-control" />
                                             </div>
@@ -83,7 +106,7 @@
                                         <div class="col-xl-4 col-md-6">
                                             <div class="form-group mb-3">
                                                 <label>Email</label>
-                                                <input type="email" required id="email"
+                                                <input type="email" name="email"
                                                     data-pristine-required-message="Please Enter a Email"
                                                     class="form-control" />
                                             </div>
@@ -91,7 +114,7 @@
                                         <div class="col-xl-4 col-md-6">
                                             <div class="form-group mb-3">
                                                 <label>Phone</label>
-                                                <input type="tel" required id="phone"
+                                                <input type="tel" name="phone"
                                                     data-pristine-required-message="Please Enter a Email"
                                                     class="form-control" />
                                             </div>
@@ -99,15 +122,15 @@
                                         <div class="col-xl-4 col-md-6">
                                             <div class="form-group mb-3">
                                                 <label>Date of Birth</label>
-                                                <input class="form-control" type="date" id="date">
+                                                <input class="form-control" type="date" name="dOB">
                                             </div>
 
                                         </div>
                                         <div class="col-xl-4 col-md-6">
                                             <div class="form-group mb-3">
-                                                <label>Possition</label>
-                                                <input type="text" required id="position"
-                                                    data-pristine-required-message="Please Enter a Possition"
+                                                <label>Position</label>
+                                                <input type="text" required name="position"
+                                                    data-pristine-required-message="Please Enter a Position"
                                                     class="form-control" />
                                             </div>
                                         </div>
@@ -118,16 +141,30 @@
                                         <div class="col-xl-6 col-md-6">
                                             <div class="form-group mb-3">
                                                 <label>Facebook</label>
-                                                <input type="text" required
-                                                    data-pristine-required-message="Please Enter fullName" id="face"
+                                                <input type="text"
+                                                    id="face" name="face"
                                                     class="form-control" />
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-md-6">
                                             <div class="form-group mb-3">
                                                 <label>Instagram</label>
-                                                <input type="text" required id="ig"
-                                                    data-pristine-required-message="Please Enter a Email"
+                                                <input type="text" id="ig" name="ig"
+                                                    
+                                                    class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-md-6">
+                                            <div class="form-group mb-3">
+                                                <label>Linkedin</label>
+                                                <input type="text" id="linkedin" name="linkedin"
+                                                    class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6 col-md-6">
+                                            <div class="form-group mb-3">
+                                                <label>Twitter</label>
+                                                <input type="text" id="twitter" name="twitter"
                                                     class="form-control" />
                                             </div>
                                         </div>
@@ -135,9 +172,9 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <button type="button" id="submit" class="btn btn-primary">Create</button>
+                                        <button class="btn btn-primary">Create</button>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal-dialog -->
@@ -185,7 +222,8 @@
                 <td>{{this.email}}</td>
                 <td>{{this.phone}}</td>
                 <td>
-                    <a href="./members/detail/{{this.username}}">View</a>
+                    <a class="ml-2" href="/members/detail/{{this.username}}">View</a>
+                    <a href="/members/edit/{{this.username}}">Edit</a>
                 </td>
             </tr>
             {{/each}}
