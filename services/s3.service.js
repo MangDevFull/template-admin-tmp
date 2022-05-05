@@ -2,12 +2,15 @@ import s3 from '../s3.js';
 import vars from '../vars.js';
 import { nanoid } from 'nanoid';
 import httpMsgs from "http-msgs";
-export default{
+import { Response } from "../utils/response.js"
+
+
+export default {
   getResignedUrl: (req, res, next) => {
     try {
       const { fileType } = req.body;
       if (fileType !== 'jpg' && fileType !== 'png' && fileType !== 'jpeg') {
-        httpMsgs.sendJSON(req,res,{'boolean' : false});
+        httpMsgs.sendJSON(req, res, { 'boolean': false });
       }
 
       const fullFileName = `data/images/${nanoid()}.${fileType}`;
@@ -25,10 +28,21 @@ export default{
         uploadUrl: presignedUrl,
         downloadUrl: `${vars.s3Url}/${fullFileName}`
       };
-      return  httpMsgs.sendJSON(req,res,{'boolean' : true,"data":returnData});
+      return httpMsgs.sendJSON(req, res, { 'boolean': true, "data": returnData });
     } catch (err) {
       console.error(err);
       return next(err);
     }
-  }
+  },
+  getDownloadLink: async (req, res, next) => {
+    try {
+      return httpMsgs.sendJSON(req, res, {
+        boolean: true,
+        data: req.file.location,
+      });
+    } catch (err) {
+      console.error(err);
+      return next(err);
+    }
+  },
 }

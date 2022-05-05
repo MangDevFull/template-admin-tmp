@@ -19,5 +19,4 @@ router.route("/:slug")
 
 
 
-
 export default router;

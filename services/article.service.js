@@ -60,7 +60,6 @@ const ArticleService = {
     try {
       const { title, subTitle, thumbnail, content, source, category, status } =
         req.body;
-      console.log("article", req.body);
       const file = req.file;
       let location = file?.location;
       await Article.create({
@@ -72,7 +71,6 @@ const ArticleService = {
         source,
         status,
       });
-
       return res.redirect("/news");
     } catch (err) {
       console.error(err);
