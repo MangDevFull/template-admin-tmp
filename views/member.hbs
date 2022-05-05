@@ -86,7 +86,7 @@
                                             </div>
 
                                             <img id="imagePreview" src="https://laka-storage-vn.hn.ss.bfcplatform.vn/assets/images/avatars/a1@200.png" alt=""
-                                                class="img-fluid rounded-circle img-thumbnail">
+                                                class="img-fluid img-thumbnail tmp-avatar-circle">
 
                                         </div>
                                     </div>
@@ -222,8 +222,8 @@
                 <td>{{this.email}}</td>
                 <td>{{this.phone}}</td>
                 <td>
-                    <a class="ml-2" href="/members/detail/{{this.username}}">View</a>
-                    <a href="/members/edit/{{this.username}}">Edit</a>
+                    <a class="ml-2" href="/members/detail/{{this.username}}"><i class="fas fa-eye"></i></a>
+                    <a href="/members/edit/{{this.username}}"><i class="fas fa-edit text-success"></i></a>
                 </td>
             </tr>
             {{/each}}
