@@ -11,6 +11,9 @@ import pageRouter from "./page.route.js"
 import {authorize} from '../middlewares/authorize.js'
 import { accountTypeEnum } from '../enums/accountType.enum.js';
 import { ArticleService } from '../services/article.service.js';
+import s3Service from '../services/s3.service.js';
+import { uploadImageMiddleware } from "../services/uploadImage.service.js";
+
 
 const router = express.Router();
 router.get('/', authorize(accountTypeEnum.ADMIN), ArticleService.showList)
@@ -22,7 +25,7 @@ router.use('/news', authorize(accountTypeEnum.ADMIN),newsRouter)
 router.use('/career', authorize(accountTypeEnum.ADMIN),careerRouter)
 router.use('/s3-upload', authorize(accountTypeEnum.ADMIN),uploadMedia.getResignedUrl)
 router.use('/page', authorize(accountTypeEnum.ADMIN), pageRouter)
-
+router.use('/ckeditor-images',uploadImageMiddleware, s3Service.getDownloadLink)
 
 
 export default router;

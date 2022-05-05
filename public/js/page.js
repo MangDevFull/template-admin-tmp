@@ -1,13 +1,5 @@
 
 $(document).ready(function () {
-  ClassicEditor
-  .create( document.querySelector( '#ckeditor-classic' ) )
-  .then( newEditor => {
-    editor = newEditor
-  } )
-  .catch( error => {
-      console.error( error );
-  } );
   $("#create1").click(function () {
     const editorData = editor.getData();
     const data = {}
@@ -59,3 +51,13 @@ $(document).ready(function () {
     })
   })
 })
+
+$(document).ready(function () {
+  $("#create1").click(function () {
+    $("#s").val("0");
+  });
+  $("#create2").click(function () {
+    $("#s").val("1");
+  });
+});
+

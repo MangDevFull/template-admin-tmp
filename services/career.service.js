@@ -17,6 +17,8 @@ const CareersService = {
     })
   },
 
+
+
   getDetails: async (req, res, next) => {
     try {
       const { slug } = req.params

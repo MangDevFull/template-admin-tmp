@@ -43,12 +43,12 @@
         <div class="row">
           <div class="col-md-12">
             <div class="mb-3">
-              <label for="example-text-input" class="form-label">Title</label>
+              <label for="example-text-input" class="form-label" required="required">Title</label>
               <input class="form-control" type="text" name="title">
             </div>
              <div class="mb-3">
               <label for="example-text-input" class="form-label">Sub Title</label>
-              <input class="form-control" type="text" name="subTitle">
+              <input class="form-control" type="text" name="subTitle" required="required">
             </div>
             <input type="hidden" name="status" id="s"></input>
             <div class="mb-3">
@@ -95,7 +95,7 @@
         <h4 class="card-title">Content</h4>
       </div>
       <div class="card-body">
-        <div id="ckeditor-classic" name="content"></div>
+        <textarea id="ckeditor-classic" name="content"></textarea>
       </div>
     </div>
      <div class="d-flex justify-content-end">
@@ -124,3 +124,4 @@
 
 <script src="/assets/js/app.js"></script>
 <script src="/js/new.js"></script>
+<script src="/js/customUploadAdapter.js"></script>
