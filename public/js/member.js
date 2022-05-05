@@ -47,27 +47,27 @@ $(document).ready(function () {
   //     },
   //   });
   // });
-  // $("#delete").click(() => {
-  //   const data = {};
-  //   data.username = $("#usename").text();
-  //   $.ajax({
-  //     url: "/members",
-  //     method: "POST",
-  //     data: data,
-  //     success: function (da) {
-  //       if (da.boolean) {
-  //         $("#myModal").modal("hide");
-  //         $("#ignismyModal").modal("show");
-  //         setTimeout(function () {
-  //           location.reload();
-  //         }, 1500);
-  //       }
-  //     },
-  //     error: function (jqXHR, textStatus, errorThrown) {
-  //       alert(errorThrown);
-  //     },
-  //   });
-  // });
+  $("#delete").click(() => {
+    const data = {};
+    data.username = $("#usename").text();
+    $.ajax({
+      url: "/members",
+      method: "POST",
+      data: data,
+      success: function (da) {
+        if (da.boolean) {
+          $("#myModal").modal("hide");
+          $("#ignismyModal").modal("show");
+          setTimeout(function () {
+            location.reload();
+          }, 1500);
+        }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        alert(errorThrown);
+      },
+    });
+  });
   // $("#update").click(function () {
   //   $("#form").submit(false);
   //   const username = $("#usename").text();
