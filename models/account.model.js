@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs';
-import { accountTypeEnum } from '../enums/accountType.enum.js';
-import { accountStatusEnum } from '../enums/accountStatus.enum.js';
+import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
+import { accountTypeEnum } from "../enums/accountType.enum.js";
+import { accountStatusEnum } from "../enums/accountStatus.enum.js";
 
 const { Schema } = mongoose;
 
@@ -10,7 +10,7 @@ const accountSchema = new Schema(
     profile: {
       fullName: {
         type: String,
-        default: '',
+        default: "",
       },
       dateOfBirth: {
         type: Date,
@@ -18,7 +18,7 @@ const accountSchema = new Schema(
       avatar: {
         type: String,
         default:
-          'https://laka-storage-vn.hn.ss.bfcplatform.vn/assets/images/avatars/a1@200.png',
+          "https://laka-storage-vn.hn.ss.bfcplatform.vn/assets/images/avatars/a1@200.png",
       },
       email: {
         type: String,
@@ -38,7 +38,7 @@ const accountSchema = new Schema(
       select: true,
     },
     type: {
-      type: String,
+      type: Number,
       enum: Object.values(accountTypeEnum),
       default: accountTypeEnum.CUSTOMER,
     },
@@ -81,5 +81,5 @@ accountSchema.methods = {
   },
 };
 
-const Account = mongoose.model('Account', accountSchema);
+const Account = mongoose.model("Account", accountSchema);
 export { Account };

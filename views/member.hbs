@@ -55,7 +55,7 @@
             </div>
             <div>
                 <a class="btn btn-secondary"
-                href="/members/new"
+                href="/admin/members/new"
                    ><i class="bx bx-plus me-1"></i>Add New</a>
 
                 <!-- Large modal button -->
@@ -74,7 +74,7 @@
                             </div>
                             <div class="modal-body">
                                 
-                                <form id="data" novalidate="" action="/members" method="POST" enctype="multipart/form-data">
+                                <form id="data" novalidate="" action="/admin/members" method="POST" enctype="multipart/form-data">
                                     <h5> Information about</h5>
                                     <div class="row">
                                         <div class="col-12 avatar-xxl me-3 avatar-upload">
@@ -222,8 +222,8 @@
                 <td>{{this.email}}</td>
                 <td>{{this.phone}}</td>
                 <td>
-                    <a class="ml-2" href="/members/detail/{{this.username}}"><i class="fas fa-eye"></i></a>
-                    <a href="/members/edit/{{this.username}}"><i class="fas fa-edit text-success"></i></a>
+                    <a class="ml-2" href="/admin/members/detail/{{this.username}}"><i class="fas fa-eye"></i></a>
+                    <a href="/admin/members/edit/{{this.username}}"><i class="fas fa-edit text-success"></i></a>
                 </td>
             </tr>
             {{/each}}

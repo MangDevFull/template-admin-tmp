@@ -1,6 +1,6 @@
 import express from "express";
-import { MemberService } from "../services/member.service.js";
-import { uploadImageMiddleware } from "../services/uploadImage.service.js";
+import { MemberService } from "../../services/member.service.js";
+import { uploadImageMiddleware } from "../../services/uploadImage.service.js";
 const router = express.Router();
 router.use((req, res, next) => {
   res.locals.layout = "./layouts/main.hbs";

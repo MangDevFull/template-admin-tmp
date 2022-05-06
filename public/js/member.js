@@ -51,7 +51,7 @@ $(document).ready(function () {
     const data = {};
     data.username = $("#usename").text();
     $.ajax({
-      url: "/members",
+      url: "/admin/members",
       method: "POST",
       data: data,
       success: function (da) {
